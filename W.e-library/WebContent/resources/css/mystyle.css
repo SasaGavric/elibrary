@@ -1,0 +1,137 @@
+html{
+	height:100%;
+}
+
+body{
+	height:100px;
+	background-image: url("../image/cover.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.jumbotron{
+	margin:auto;
+	margin-top:3%;
+	margin-bottom:3%;
+	width:65%;
+	border-radius: 6%;
+	padding: 1%;
+	min-width: 700px;
+	
+}
+
+h1{
+	text-align: center;
+	color:white;
+	font-family: 'Pacifico', cursive;
+	font-size:110px;
+}
+
+.user{
+	width: 75px;
+	height: 75px;
+	margin-bottom: 10px;
+	margin-right:20px;
+	float: right;
+}
+
+#customerForm{
+	width: 25%;
+	padding-right:7%;
+	padding-left: 7%;
+}
+
+.btn-onright{
+	float: right;
+}
+
+.errors{
+	color: red;
+}
+
+.name-title{
+	display:block;
+	margin: auto;
+	text-align: center;
+}
+
+.cover{
+	width: 180px;
+	height: 180px;
+	display:block;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+}
+
+.img-rounded{
+	margin-bottom: 1%;
+}
+
+#book-image{
+	height: 240px;
+}
+
+
+i{
+	display:inline-block;
+	width:7%;
+	margin-right: 50px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:3%;
+    background-color: #eee;
+    color: black;
+    text-align: center;
+}
+
+.footer{
+	padding-top: 5px;
+}
+
+.form-inline{
+	float:right;
+}
+
+.nav-pills>li+li{
+	background-color: #d6d6d6;
+}
+
+.nav>li>a{
+	background-color: #d6d6d6;
+}
+
+.nav>li>a:hover{
+	background-color:  #c3daee;
+}
+
+.max-field{
+	max-width: 200px;
+}
+
+.ordered-list{
+	display: inline-table;
+	list-style-type: none;
+}
+
+.overview{
+	display:block;
+	margin: auto;
+	margin-bottom:3%;
+	text-align: center;
+}
+
+.overview-panel{
+	max-width: 1000px;
+}
+
+.txtarea{
+	resize: none;
+}
