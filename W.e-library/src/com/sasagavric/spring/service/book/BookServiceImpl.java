@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sasagavric.spring.dao.book.BookDAO;
+import com.sasagavric.spring.entity.Author;
 import com.sasagavric.spring.entity.Book;
 
 @Service
@@ -43,6 +44,13 @@ public class BookServiceImpl implements BookService {
 		
 		bookDao.deleteBook(theBook);
 		
+	}
+
+	@Override
+	@Transactional
+	public List<Author> getListOfAuthors() {
+		// TODO Auto-generated method stub
+		return bookDao.getListOfAuthors();
 	}
 	
 }

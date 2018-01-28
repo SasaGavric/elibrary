@@ -23,6 +23,8 @@
 
 	<div class="jumbotron" id="customerForm">
 
+		<h2 class="form-header">Add Book</h2>
+		
 		<form:form action="saveBook" modelAttribute="book" method="POST">
 			
 			<form:hidden path="id"/>
@@ -31,6 +33,11 @@
 				<form:label path="title">Title</form:label>
 				<form:input path="title" cssClass="form-control" id="exampleInputName2" placeholder="The Lord of the Rings"/>
 				<form:errors path="title" cssClass="errors"/>
+			</div>
+			<div class="form-group form-authors">
+				<form:label path="listOfAuthors">Authors (Hold Ctrl for multiple select)</form:label>
+				<form:select path="listOfAuthors" multiple="true" size="3" class="form-control authors" items="${listOfAuthors}"  />
+				<button type="button" class="btn btn-primary author-btn">Add New Author</button>			
 			</div>
 			<div class="form-group">
 				<form:label path="dateOfIssue">Publication Date</form:label>

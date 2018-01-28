@@ -28,6 +28,7 @@ h1{
 	font-size:110px;
 }
 
+
 .user{
 	width: 75px;
 	height: 75px;
@@ -134,4 +135,22 @@ i{
 
 .txtarea{
 	resize: none;
+}
+
+.form-header{
+	text-align: center;
+	font-weight:bold;
+}
+
+.authors{
+	width: 60%;
+	display:inline-block;	
+}
+.form-authors{
+	margin-bottom: 0px;
+}
+
+.author-btn{
+	margin-bottom: 12%;
+	margin-left: 9%;
 }

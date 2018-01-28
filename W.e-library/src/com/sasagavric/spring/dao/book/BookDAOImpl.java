@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sasagavric.spring.entity.Author;
 import com.sasagavric.spring.entity.Book;
 
 /**
@@ -77,6 +78,17 @@ public class BookDAOImpl implements BookDAO {
 		Session theSession = factory.getCurrentSession();
 		theSession.delete(theBook);
 		
+	}
+
+	@Override
+	public List<Author> getListOfAuthors() {
+		
+		Session session = factory.getCurrentSession();
+		
+		@SuppressWarnings("unchecked")
+		List<Author> listOfAuthors = session.createQuery("from Author").getResultList();
+		
+		return listOfAuthors;
 	}
 	
 	

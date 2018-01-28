@@ -27,7 +27,7 @@
 	
 	<hr>
 	
-	<a href="<c:url value="memberForm" ></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add New Customer</button></a>
+	<a href="<c:url value="memberForm" ></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add New Member</button></a>
 	
 	<form class="form-inline" action="memberSearch" method="POST">
   		<div class="form-group">

@@ -22,6 +22,7 @@
 
 
 	<div class="jumbotron" id="customerForm">
+		<h2 class="form-header" >Add Member</h2>
 
 		<form:form action="saveMember" modelAttribute="member" method="POST">
 			

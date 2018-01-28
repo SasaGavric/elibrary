@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.sasagavric.spring.entity.Author;
 import com.sasagavric.spring.entity.Book;
 import com.sasagavric.spring.service.book.BookService;
 
@@ -52,8 +53,11 @@ public class BookController {
 		//create book object for data binding
 		Book theBook = new Book();
 		
-		//add object to model
+		//get all authors
+		List<Author> listOfAuthors= bookService.getListOfAuthors();
+		
 		model.addAttribute("book", theBook);
+		model.addAttribute("listOfAuthors", listOfAuthors);
 		
 		return "bookForm";
 	}
