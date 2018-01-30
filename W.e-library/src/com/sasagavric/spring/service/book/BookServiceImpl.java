@@ -11,6 +11,10 @@ import com.sasagavric.spring.dao.book.BookDAO;
 import com.sasagavric.spring.entity.Author;
 import com.sasagavric.spring.entity.Book;
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -49,8 +53,23 @@ public class BookServiceImpl implements BookService {
 	@Override
 	@Transactional
 	public List<Author> getListOfAuthors() {
-		// TODO Auto-generated method stub
+		
 		return bookDao.getListOfAuthors();
+	}
+
+	@Override
+	@Transactional
+	public void saveBook(Book theBook) {
+		
+		bookDao.saveBookToDataBase(theBook);
+		
+	}
+
+	@Override
+	@Transactional
+	public Author getById(int authorId) {
+		
+		return bookDao.getAuthor(authorId);
 	}
 	
 }

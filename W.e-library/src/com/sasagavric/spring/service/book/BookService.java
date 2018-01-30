@@ -5,6 +5,10 @@ import java.util.List;
 import com.sasagavric.spring.entity.Author;
 import com.sasagavric.spring.entity.Book;
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 public interface BookService {
 	
 	public List<Book> getListOfBooks();
@@ -16,6 +20,10 @@ public interface BookService {
 	public void deleteBook(Book theBook);
 
 	public List<Author> getListOfAuthors();
+
+	public void saveBook(Book theBook);
+
+	public Author getById(int authorId);
 	
 
 }

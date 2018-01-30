@@ -5,7 +5,7 @@ html{
 body{
 	height:100px;
 	background-image: url("../image/cover.jpeg");
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	background-size: cover;
 	background-position: center;
 }

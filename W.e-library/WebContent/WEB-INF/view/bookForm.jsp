@@ -34,9 +34,9 @@
 				<form:input path="title" cssClass="form-control" id="exampleInputName2" placeholder="The Lord of the Rings"/>
 				<form:errors path="title" cssClass="errors"/>
 			</div>
-			<div class="form-group form-authors">
+			 <div class="form-group form-authors">
 				<form:label path="listOfAuthors">Authors (Hold Ctrl for multiple select)</form:label>
-				<form:select path="listOfAuthors" multiple="true" size="3" class="form-control authors" items="${listOfAuthors}"  />
+				<form:select path="listOfAuthors" multiple="true" size="3" class="form-control authors" items="${listOfAuthors}" itemValue="id"  />
 				<button type="button" class="btn btn-primary author-btn">Add New Author</button>			
 			</div>
 			<div class="form-group">
@@ -55,11 +55,16 @@
 				<form:errors path="language" cssClass="errors"/>
 			</div>
 			<div class="form-group">
-				<form:label path="description">Summary</form:label>
-				<form:textarea path="description" class="form-control txtarea" rows="12"/>
-				<form:errors path="description" cssClass="errors"/>
-				
+				<form:label path="coverImageUrl">Cover Image: </form:label>
+				<form:input type="" path="coverImageUrl" cssClass="form-control" id="exampleInputName2" placeholder="www.images.com/image1"/>
+				<form:errors path="coverImageUrl" cssClass="errors"/>
 			</div>
+			<div class="form-group">
+				<form:label path="description">Summary</form:label>
+				<form:textarea path="description" class="form-control txtarea" rows="8"/>
+				<form:errors path="description" cssClass="errors"/>		
+			</div>
+			
 
 			<button type="submit" class="btn btn-default">Submit</button>
 			<a href="<c:url value="bookList"></c:url>" ><button type="button" class="btn btn-default btn-onright">Cancel</button></a>

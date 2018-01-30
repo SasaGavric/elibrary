@@ -76,19 +76,49 @@ public class BookDAOImpl implements BookDAO {
 	public void deleteBook(Book theBook) {
 		
 		Session theSession = factory.getCurrentSession();
+		
 		theSession.delete(theBook);
 		
 	}
 
+	/* Get all authors from data base
+	 * @see com.sasagavric.spring.dao.book.BookDAO#getListOfAuthors()
+	 */
 	@Override
 	public List<Author> getListOfAuthors() {
 		
 		Session session = factory.getCurrentSession();
 		
 		@SuppressWarnings("unchecked")
-		List<Author> listOfAuthors = session.createQuery("from Author").getResultList();
+		List<Author> listOfAuthors = session.createQuery("from Author a order by a.firstName ").getResultList();
 		
 		return listOfAuthors;
+	}
+
+	/* Save Book theBook in database or update if object already exist in database
+	 * @see com.sasagavric.spring.dao.book.BookDAO#saveBookToDataBase(com.sasagavric.spring.entity.Book)
+	 */
+	@Override
+	public void saveBookToDataBase(Book theBook) {
+		
+		Session session=factory.getCurrentSession();
+		
+		session.saveOrUpdate(theBook);	
+		
+	}
+
+	/* Get one author from database via author identifier
+	 * @see com.sasagavric.spring.dao.book.BookDAO#getAuthor(int)
+	 */
+	@Override
+	public Author getAuthor(int authorId) {
+
+		Session session=factory.getCurrentSession();
+		
+		Author theAuthor = session.get(Author.class, authorId);
+		
+		return theAuthor;
+		
 	}
 	
 	
