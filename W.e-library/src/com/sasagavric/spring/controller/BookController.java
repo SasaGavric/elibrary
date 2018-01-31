@@ -157,5 +157,31 @@ public class BookController {
 		
 		return "redirect:bookList";
 	}
+	
+	
+	/**
+	 * Return form for adding new author to database via data binding
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/authorForm")
+	public String getAuthorForm(Model model) {
+		
+		Author theAuthor = new Author();
+		
+		model.addAttribute("author", theAuthor);
+		
+		return "authorForm";
+	}
+	
+	@PostMapping("/saveAuthor")
+	public String saveAuthor(@ModelAttribute("author") Author theAuthor) {
+		
+		System.out.println(theAuthor.getFirstName() +" "+ theAuthor.getLastName() + "\n" + theAuthor.getDescription());
+		
+		bookService.saveAuthor(theAuthor);
+		
+		return "redirect:bookForm";
+	}
 
 }

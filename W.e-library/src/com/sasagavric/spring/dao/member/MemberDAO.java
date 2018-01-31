@@ -11,7 +11,7 @@ public interface MemberDAO {
 
 	public void saveMember(Member theMember);
 
-	public Member getCustomer(int theId);
+	public Member getMember(int theId);
 
 	public void deleteMember(int theId);
 

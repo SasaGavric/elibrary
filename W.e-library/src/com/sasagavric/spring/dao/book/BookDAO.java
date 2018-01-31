@@ -25,4 +25,6 @@ public interface BookDAO {
 
 	public Author getAuthor(int authorId);
 
+	public void saveNewAuthor(Author theAuthor);
+
 }

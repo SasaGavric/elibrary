@@ -22,7 +22,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	@Transactional
-	public void saveCustomer(Member theMember) {
+	public void saveMember(Member theMember) {
 		memberDao.saveMember(theMember);
 		
 	}
@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	@Transactional
 	public Member getMember(int theId) {
-		return memberDao.getCustomer(theId);
+		return memberDao.getMember(theId);
 	}
 
 	@Override

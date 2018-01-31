@@ -71,5 +71,13 @@ public class BookServiceImpl implements BookService {
 		
 		return bookDao.getAuthor(authorId);
 	}
+
+	@Override
+	@Transactional
+	public void saveAuthor(Author theAuthor) {
+		
+		bookDao.saveNewAuthor(theAuthor);
+		
+	}
 	
 }

@@ -10,12 +10,19 @@ import org.springframework.stereotype.Repository;
 import com.sasagavric.spring.entity.Member;
 
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 @Repository
 public class MemberDAOImpl implements MemberDAO {
 	
 	@Autowired
 	private SessionFactory factory;
 
+	/* Get all members from database
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#listOfMembers()
+	 */
 	@Override
 	public List<Member> listOfMembers() {
 		
@@ -28,6 +35,9 @@ public class MemberDAOImpl implements MemberDAO {
 		return listOfMembers;
 	}
 
+	/* Update if object is already persisted in database or save if client add new member
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#saveMember(com.sasagavric.spring.entity.Member)
+	 */
 	@Override
 	public void saveMember(Member theMember) {
 		
@@ -41,8 +51,11 @@ public class MemberDAOImpl implements MemberDAO {
 			
 	}
 
+	/* get one member from database via member id
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#getCustomer(int)
+	 */
 	@Override
-	public Member getCustomer(int theId) {
+	public Member getMember(int theId) {
 		//create Session
 		Session session = factory.getCurrentSession();
 		

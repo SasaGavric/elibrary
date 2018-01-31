@@ -75,7 +75,7 @@ public class MemberController {
 		if (bindingResult.hasErrors()) {
 			return "memberForm";
 		} else {
-			memberService.saveCustomer(theMember);
+			memberService.saveMember(theMember);
 			return "redirect:homePage";
 		}
 	}

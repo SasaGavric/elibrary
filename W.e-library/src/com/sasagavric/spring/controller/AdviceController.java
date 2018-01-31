@@ -57,7 +57,11 @@ public class AdviceController {
 	 */
 	@InitBinder
     public void initBinder(ServletRequestDataBinder binder) {
+		
+		System.out.println("----BINDER----");
+		
      binder.registerCustomEditor(List.class, "listOfAuthors", new CustomCollectionEditor(List.class) {
+    	 
 
             protected Object convertElement(Object element) {
                 if (element != null) {

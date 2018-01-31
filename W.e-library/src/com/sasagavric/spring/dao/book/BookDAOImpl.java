@@ -120,6 +120,18 @@ public class BookDAOImpl implements BookDAO {
 		return theAuthor;
 		
 	}
+
+	/* Save new author in database
+	 * @see com.sasagavric.spring.dao.book.BookDAO#saveNewAuthor(com.sasagavric.spring.entity.Author)
+	 */
+	@Override
+	public void saveNewAuthor(Author theAuthor) {
+		
+		Session session = factory.getCurrentSession();
+		
+		session.save(theAuthor);
+		
+	}
 	
 	
 

@@ -37,7 +37,7 @@
 			 <div class="form-group form-authors">
 				<form:label path="listOfAuthors">Authors (Hold Ctrl for multiple select)</form:label>
 				<form:select path="listOfAuthors" multiple="true" size="3" class="form-control authors" items="${listOfAuthors}" itemValue="id"  />
-				<button type="button" class="btn btn-primary author-btn">Add New Author</button>			
+				<a href='<c:url value="authorForm"></c:url>'><button type="button" class="btn btn-primary author-btn">Add New Author</button></a>			
 			</div>
 			<div class="form-group">
 				<form:label path="dateOfIssue">Publication Date</form:label>

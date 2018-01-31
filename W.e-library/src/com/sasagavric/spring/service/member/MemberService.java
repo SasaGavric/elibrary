@@ -8,7 +8,7 @@ public interface MemberService {
 
 	public List<Member> getListOfMembers();
 
-	public void saveCustomer(Member theMember);
+	public void saveMember(Member theMember);
 
 	public Member getMember(int theId);
 

@@ -24,6 +24,8 @@ public interface BookService {
 	public void saveBook(Book theBook);
 
 	public Author getById(int authorId);
+
+	public void saveAuthor(Author theAuthor);
 	
 
 }
