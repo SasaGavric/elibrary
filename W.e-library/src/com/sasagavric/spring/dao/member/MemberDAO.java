@@ -7,7 +7,7 @@ import com.sasagavric.spring.entity.Member;
 
 public interface MemberDAO {
 
-	public List<Member> listOfMembers();
+	public List<Member> listOfMembers(int page);
 
 	public void saveMember(Member theMember);
 

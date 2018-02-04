@@ -6,7 +6,7 @@ import com.sasagavric.spring.entity.Member;
 
 public interface MemberService {
 
-	public List<Member> getListOfMembers();
+	public List<Member> getListOfMembers(int page);
 
 	public void saveMember(Member theMember);
 

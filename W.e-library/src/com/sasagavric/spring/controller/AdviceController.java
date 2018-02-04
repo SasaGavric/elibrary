@@ -8,7 +8,6 @@ import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import com.sasagavric.spring.entity.Author;
@@ -23,17 +22,7 @@ public class AdviceController {
 	
 	@Autowired
 	private BookService bookService;
-	
-	/**
-	 * Handle all exception in app
-	 * @return
-	 */
-	@ExceptionHandler(Exception.class)
-	public String handleExceptions() {
-		
-		return "homePage";
-	}
-	
+
 	
 	/**
 	 * init binder which will convert String data to valid format (trim String)
@@ -57,8 +46,6 @@ public class AdviceController {
 	 */
 	@InitBinder
     public void initBinder(ServletRequestDataBinder binder) {
-		
-		System.out.println("----BINDER----");
 		
      binder.registerCustomEditor(List.class, "listOfAuthors", new CustomCollectionEditor(List.class) {
     	 

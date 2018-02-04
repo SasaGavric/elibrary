@@ -75,7 +75,8 @@
  
 		</table>
 		
-		<a href="<c:url value="bookList"></c:url>"><button type="button" class="btn btn-default btn-onright">Back</button></a>
+		
+		<a href="<c:url value="bookList"> <c:param name="page" value="${param.page}"/> </c:url>"><button type="button" class="btn btn-default btn-onright">Back</button></a>
 		<br><br>
 	</div>
 

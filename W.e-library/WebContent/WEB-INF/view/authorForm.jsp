@@ -26,13 +26,18 @@
 	<h2 class="form-header">Add Book</h2>
 	
 	<form:form action="saveAuthor" modelAttribute="author" method="POST">
+	
+	<input type="hidden" name="page" value="${param.page}">
+	
 	<div class="form-group">
 		<form:label path="firstName">First Name</form:label>
 		<form:input path="firstName" cssClass="form-control" id="exampleInputName2" placeholder="Jane"/>
+		<form:errors path="firstName" cssClass="errors"/>
 	</div>
 	<div class="form-group">
 		<form:label path="lastName">Last Name</form:label>
 		<form:input path="lastName" cssClass="form-control" id="exampleInputName2" placeholder="Jane"/>
+		<form:errors path="lastName" cssClass="errors"/>
 	</div>
 	<div class="form-group">
 		<form:label path="description">Biography</form:label>
@@ -40,7 +45,7 @@
 	</div>
 		
 		<input type="submit" value="Submit" class="btn btn-default"/>
-		<a href="<c:url value="bookForm"></c:url>" ><button type="button" class="btn btn-default btn-onright">Cancel</button></a>
+		<a href="<c:url value="bookForm"> <c:param name="page" value="${param.page}"/> </c:url>" ><button type="button" class="btn btn-default btn-onright">Cancel</button></a>
 	
 	</form:form>
 	</div>

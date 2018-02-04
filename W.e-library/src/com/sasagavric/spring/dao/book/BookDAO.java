@@ -11,7 +11,7 @@ import com.sasagavric.spring.entity.Book;
  */
 public interface BookDAO {
 	
-	public List<Book> getListOfBooks();
+	public List<Book> getListOfBooks(int page);
 
 	public Book getBook(int theId);
 

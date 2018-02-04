@@ -16,7 +16,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -34,6 +40,9 @@ public class Book {
 	private int id;
 	
 	@Column(name="title")
+	@NotNull
+	@Size(min = 2, max = 35)
+	@Value("${foo.firstName}")
 	private String title;
 	
 	@Column(name="description")
@@ -42,15 +51,23 @@ public class Book {
 	@Temporal(TemporalType.DATE)
 	@Column(name="date_of_issue")
 	@DateTimeFormat(iso= ISO.DATE)
+	@NotNull
+	@Past
 	private Date dateOfIssue;
 	
 	@Column(name="number_of_pages")
+	@NotNull
+	@Min(1)
+	@Max(50000)
 	private int numberOfPages;
 	
 	@Column(name="language")
+	@NotNull
+	@Size(min = 2, max = 35)
 	private String language;
 	
 	@Column(name="image_url")
+	@Size(min=1, max=2082)
 	private String coverImageUrl;
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -63,15 +80,6 @@ public class Book {
 	
 	public Book() {
 		
-	}
-
-	public Book(String title, String description, Date dateOfIssue, int numberOfPages, String language) {
-		super();
-		this.title = title;
-		this.description = description;
-		this.dateOfIssue = dateOfIssue;
-		this.numberOfPages = numberOfPages;
-		this.language = language;
 	}
 
 	public int getId() {

@@ -26,7 +26,7 @@ public class Author extends Person {
 	@Column(name = "description")
 	private String description;
 
-	@ManyToMany(fetch=FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+	@ManyToMany(fetch=FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH })
 	@JoinTable(
 			name = "book_author", 
@@ -46,7 +46,6 @@ public class Author extends Person {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 
 	public String getDescription() {

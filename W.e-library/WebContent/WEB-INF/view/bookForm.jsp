@@ -28,6 +28,7 @@
 		<form:form action="saveBook" modelAttribute="book" method="POST">
 			
 			<form:hidden path="id"/>
+			<input type="hidden" name="page" value="${param.page}">
 			
 			<div class="form-group">
 				<form:label path="title">Title</form:label>
@@ -37,7 +38,7 @@
 			 <div class="form-group form-authors">
 				<form:label path="listOfAuthors">Authors (Hold Ctrl for multiple select)</form:label>
 				<form:select path="listOfAuthors" multiple="true" size="3" class="form-control authors" items="${listOfAuthors}" itemValue="id"  />
-				<a href='<c:url value="authorForm"></c:url>'><button type="button" class="btn btn-primary author-btn">Add New Author</button></a>			
+				<a href="<c:url value="authorForm"> <c:param name="page" value="${param.page}"/> </c:url>"><button type="button" class="btn btn-primary author-btn">Add New Author</button></a>
 			</div>
 			<div class="form-group">
 				<form:label path="dateOfIssue">Publication Date</form:label>
@@ -65,9 +66,10 @@
 				<form:errors path="description" cssClass="errors"/>		
 			</div>
 			
+			
 
 			<button type="submit" class="btn btn-default">Submit</button>
-			<a href="<c:url value="bookList"></c:url>" ><button type="button" class="btn btn-default btn-onright">Cancel</button></a>
+			<a href="<c:url value="bookList"><c:param name="page" value="${param.page}"/></c:url>" ><button type="button" class="btn btn-default btn-onright">Cancel</button></a>
 		</form:form>
 	
 	</div>

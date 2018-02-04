@@ -29,7 +29,7 @@ public class Member extends Person {
 	@Column(name = "date_of_birth")
 	@DateTimeFormat(iso= ISO.DATE)
 	@NotNull
-	@Past(message = "invalid date")
+	@Past
 	private Date dateOfBirth;
 
 	@Column(name = "adress")

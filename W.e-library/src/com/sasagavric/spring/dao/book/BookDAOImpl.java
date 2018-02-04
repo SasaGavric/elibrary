@@ -27,13 +27,13 @@ public class BookDAOImpl implements BookDAO {
 	 * @see com.sasagavric.spring.dao.book.BookDAO#getListOfBooks()
 	 */
 	@Override
-	public List<Book> getListOfBooks() {
+	public List<Book> getListOfBooks(int page) {
 		
 		Session session = factory.getCurrentSession();
 		
 		
 		@SuppressWarnings("unchecked")
-		List<Book> listOfBooks = session.createQuery("from Book").getResultList();
+		List<Book> listOfBooks = session.createQuery("from Book").setFirstResult(page).setMaxResults(10).getResultList();
 		
 		return listOfBooks;
 	}

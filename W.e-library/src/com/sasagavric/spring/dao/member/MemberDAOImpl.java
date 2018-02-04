@@ -24,13 +24,13 @@ public class MemberDAOImpl implements MemberDAO {
 	 * @see com.sasagavric.spring.dao.member.MemberDAO#listOfMembers()
 	 */
 	@Override
-	public List<Member> listOfMembers() {
+	public List<Member> listOfMembers(int page) {
 		
 		//create session
 		Session session = factory.getCurrentSession();
 		
 		@SuppressWarnings("unchecked")
-		List<Member> listOfMembers = session.createQuery("from Member").getResultList();
+		List<Member> listOfMembers = session.createQuery("from Member").setFirstResult(page).setMaxResults(10).getResultList();
 	
 		return listOfMembers;
 	}

@@ -21,7 +21,7 @@
 	<div class="control-panel">
 	<ul class="nav nav-pills nav-justified">
  		<li role="presentation" class="active"><a href="<c:url value="homePage"></c:url>">Members</a></li>
-  		<li role="presentation"><a href="${pageContext.request.contextPath}/book/bookList">Books</a></li>
+  		<li role="presentation"><a href="${pageContext.request.contextPath}/book/bookList?page=0">Books</a></li>
 	</ul>
 	</div>
 	
@@ -51,7 +51,7 @@
 		</thead>
 		
 		<tbody>		
-			<c:forEach var="member" items="${members}">
+			<c:forEach var="member" items="${members}" begin="0" end="10">
 				<tr>
 					<td>${member.id}</td>
 					<td>${member.firstName}</td>
@@ -83,6 +83,28 @@
 		<c:if test="${backButton == true }">
 			<a href="<c:url value="homePage"></c:url>" ><button type="button" class="btn btn-default btn-onleft">Back</button></a>
 		</c:if>
+		
+		
+		<c:url var="previous" value="homePage">
+				<c:param name="page" value="${param.page - 10}"></c:param>
+			</c:url>
+			<c:url var="next" value="homePage">
+				<c:param name="page" value="${param.page + 10}"></c:param>
+			</c:url>
+			
+			
+			<nav aria-label="...">
+  				<ul class="pager">
+  				
+  					<c:if test="${!(param.page <= 1 )}">
+    				<li class="previous"><a href="${previous}" ><span aria-hidden="true">&larr;</span> Previous</a></li>
+    				</c:if>
+    				
+    				<c:if test="${members.size() gt  (param.page + 9) }">
+    				<li class="next"><a href="${next}" onclick="${counter+9}">Next <span aria-hidden="true">&rarr;</span></a></li>
+    				</c:if>
+  				</ul>
+			</nav>
 	
 	
 	</div>

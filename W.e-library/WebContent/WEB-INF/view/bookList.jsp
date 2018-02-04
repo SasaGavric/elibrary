@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE>
@@ -28,9 +29,10 @@
 	
 	<hr>
 	
-	<a href="<c:url value="bookForm" ></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add New Book</button></a>
+	<a href="<c:url value="bookForm" ><c:param name="page" value="${param.page}"></c:param></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add New Book</button></a>
 	
 	<form class="form-inline" action="bookSearch" method="POST">
+		<input type="hidden" name="page" value="0">
   		<div class="form-group">
     		<label for="exampleInputName2">Search for Book:</label>   		
    			 <input type="text" name="name" class="form-control" id="exampleInputName2"  placeholder="The Lord of the Rings" required="required">
@@ -52,7 +54,7 @@
 		</thead>
 		
 		<tbody>		
-			<c:forEach var="book" items="${books}">
+			<c:forEach var="book" items="${books}" begin="0" end="10">
 				<tr>
 					<td>${book.id}</td>
 					<td class="max-field" >${book.title}</td>
@@ -66,9 +68,15 @@
 					
 					<c:url var="viewBook" value="viewBook">
 						<c:param name="id" value="${book.id}"></c:param>
+						<c:param name="page" value="${param.page}"></c:param>
+					</c:url>
+					<c:url var="updateBook" value="updateBook">
+						<c:param name="id" value="${book.id}"></c:param>
+						<c:param name="page" value="${param.page}"></c:param>
 					</c:url>
 					<c:url var="deleteBook" value="deleteBook">
 						<c:param name="id" value="${book.id}"></c:param>
+						<c:param name="page" value="${param.page}"></c:param>
 					</c:url>
 					
 					<td class="buttons-row">
@@ -83,12 +91,34 @@
 		
 		<c:set var="backB" value="${backButton}" />
 		<c:if test="${backB}">
-			<a href="<c:url value="bookList"></c:url>" ><button type="button" class="btn btn-default btn-onleft">Back</button></a>
+			<a href="<c:url value="bookList"><c:param name="page" value="${param.page}"></c:param></c:url>" ><button type="button" class="btn btn-default btn-onleft">Back</button></a>
 		</c:if>
+			
+			
+			<c:url var="previous" value="bookList">
+				<c:param name="page" value="${param.page - 10}"></c:param>
+			</c:url>
+			<c:url var="next" value="bookList">
+				<c:param name="page" value="${param.page + 10}"></c:param>
+			</c:url>
+			
+			
+			<nav aria-label="...">
+  				<ul class="pager">
+  				
+  					<c:if test="${!(param.page <= 1 )}">
+    				<li class="previous"><a href="${previous}" ><span aria-hidden="true">&larr;</span> Previous</a></li>
+    				</c:if>
+    				
+    				<c:if test="${fn:length(books) gt  (param.page + 9) }">
+    				<li class="next"><a href="${next}" onclick="${counter+9}">Next <span aria-hidden="true">&rarr;</span></a></li>
+    				</c:if>
+  				</ul>
+			</nav>
+			
+	</div>
 	
 	</div>
-	</div>
-	
 
 	<!-- Include Copyright footer -->
 	<jsp:include page="footer.jsp"/>
