@@ -43,6 +43,7 @@
 		<!--Go to book overview-->
 		<c:url var="overviewBook" value="bookOverview">
 			<c:param name="bookId" value="${book.id}"></c:param>
+			<c:param name="page" value="${param.page}"></c:param>
 		</c:url>
 		<h4 class="overview"><a href="${overviewBook}">Summary</a></h4>
 		

@@ -7,7 +7,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sasagavric.spring.entity.Member;
+import com.sasagavric.entity.Member;
 
 
 /**
@@ -30,7 +30,7 @@ public class MemberDAOImpl implements MemberDAO {
 		Session session = factory.getCurrentSession();
 		
 		@SuppressWarnings("unchecked")
-		List<Member> listOfMembers = session.createQuery("from Member").setFirstResult(page).setMaxResults(10).getResultList();
+		List<Member> listOfMembers = session.createQuery("from Member").setFirstResult(page).setMaxResults(11).getResultList();
 	
 		return listOfMembers;
 	}

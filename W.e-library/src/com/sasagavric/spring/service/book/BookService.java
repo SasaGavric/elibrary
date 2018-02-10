@@ -2,8 +2,8 @@ package com.sasagavric.spring.service.book;
 
 import java.util.List;
 
-import com.sasagavric.spring.entity.Author;
-import com.sasagavric.spring.entity.Book;
+import com.sasagavric.entity.Author;
+import com.sasagavric.entity.Book;
 
 /**
  * @author Sasa Gavric

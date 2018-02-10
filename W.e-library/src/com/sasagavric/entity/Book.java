@@ -1,4 +1,4 @@
-package com.sasagavric.spring.entity;
+package com.sasagavric.entity;
 
 import java.util.Date;
 import java.util.List;

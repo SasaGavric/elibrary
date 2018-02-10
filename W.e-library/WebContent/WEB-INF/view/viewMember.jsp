@@ -64,7 +64,7 @@
  
 		</table>
 		
-		<a href="<c:url value="homePage"></c:url>"><button type="button" class="btn btn-default btn-onright">Back</button></a>
+		<a href="<c:url value="homePage"><c:param name="page" value="${param.page}"/></c:url>"><button type="button" class="btn btn-default btn-onright">Back</button></a>
 		<br><br>
 	</div>
 

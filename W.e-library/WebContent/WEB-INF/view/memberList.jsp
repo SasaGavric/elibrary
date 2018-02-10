@@ -20,16 +20,17 @@
 	
 	<div class="control-panel">
 	<ul class="nav nav-pills nav-justified">
- 		<li role="presentation" class="active"><a href="<c:url value="homePage"></c:url>">Members</a></li>
+ 		<li role="presentation" class="active"><a href="<c:url value="homePage?page=0"></c:url>">Members</a></li>
   		<li role="presentation"><a href="${pageContext.request.contextPath}/book/bookList?page=0">Books</a></li>
 	</ul>
 	</div>
 	
 	<hr>
 	
-	<a href="<c:url value="memberForm" ></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add New Member</button></a>
+	<a href="<c:url value="memberForm"><c:param name="page" value="${param.page}"/></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add New Member</button></a>
 	
 	<form class="form-inline" action="memberSearch" method="POST">
+		<input type="hidden" name="page" value="0">
   		<div class="form-group">
     		<label for="exampleInputName2">Search Member:</label>   		
    			 <input type="text" name="memberName" class="form-control" id="exampleInputName2"  placeholder="Jane Doe" required="required">
@@ -51,7 +52,7 @@
 		</thead>
 		
 		<tbody>		
-			<c:forEach var="member" items="${members}" begin="0" end="10">
+			<c:forEach var="member" items="${members}" begin="0" end="9">
 				<tr>
 					<td>${member.id}</td>
 					<td>${member.firstName}</td>
@@ -60,13 +61,16 @@
 					<td>${member.email}</td>
 					
 					<c:url var="viewMember" value="viewMember">
-						<c:param name="id" value="${member.id}"></c:param>
+						<c:param name="id" value="${member.id}"/>
+						<c:param name="page" value="${param.page}"/>
 					</c:url>
 					<c:url var="updateMember" value="updateMember">
-						<c:param name="id" value="${member.id}"></c:param>
+						<c:param name="id" value="${member.id}"/>
+						<c:param name="page" value="${param.page}"/>
 					</c:url>
 					<c:url var="deleteMember" value="deleteMember">
-						<c:param name="id" value="${member.id}"></c:param>
+						<c:param name="id" value="${member.id}"/>
+						<c:param name="page" value="${param.page}"/>
 					</c:url>
 					
 					<td class="buttons-row">
@@ -81,15 +85,15 @@
 		
 		<c:set var="backButton" value="${backButton}" />
 		<c:if test="${backButton == true }">
-			<a href="<c:url value="homePage"></c:url>" ><button type="button" class="btn btn-default btn-onleft">Back</button></a>
+			<a href="<c:url value="homePage"><c:param name="page" value="${param.page}"/></c:url>" ><button type="button" class="btn btn-default btn-onleft">Back</button></a>
 		</c:if>
 		
 		
 		<c:url var="previous" value="homePage">
-				<c:param name="page" value="${param.page - 10}"></c:param>
+				<c:param name="page" value="${param.page - 10}"/>
 			</c:url>
 			<c:url var="next" value="homePage">
-				<c:param name="page" value="${param.page + 10}"></c:param>
+				<c:param name="page" value="${param.page + 10}"/>
 			</c:url>
 			
 			
@@ -100,8 +104,8 @@
     				<li class="previous"><a href="${previous}" ><span aria-hidden="true">&larr;</span> Previous</a></li>
     				</c:if>
     				
-    				<c:if test="${members.size() gt  (param.page + 9) }">
-    				<li class="next"><a href="${next}" onclick="${counter+9}">Next <span aria-hidden="true">&rarr;</span></a></li>
+    				<c:if test="${members.size() eq  11 }">
+    				<li class="next"><a href="${next}">Next <span aria-hidden="true">&rarr;</span></a></li>
     				</c:if>
   				</ul>
 			</nav>

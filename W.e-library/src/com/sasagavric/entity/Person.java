@@ -1,4 +1,4 @@
-package com.sasagavric.spring.entity;
+package com.sasagavric.entity;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;

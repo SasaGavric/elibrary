@@ -1,1 +1,1 @@
-<%response.sendRedirect("member/homePage");%>
+<%response.sendRedirect("member/homePage?page=0");%>

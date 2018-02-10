@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sasagavric.spring.entity.Member;
+import com.sasagavric.entity.Member;
 import com.sasagavric.spring.service.member.MemberService;
 
 /**
@@ -41,12 +41,10 @@ public class MemberController {
 	 * @return String 
 	 */
 	@GetMapping("/homePage")
-	public String homePage(Model model, @RequestParam(name="page", defaultValue="0") int page, RedirectAttributes redirectAttributes) {
-		System.out.println(page);
+	public String homePage(Model model, @RequestParam(name="page", defaultValue="0") int page) {
 
 		List<Member> listOfMembers = memberService.getListOfMembers(page);
 		model.addAttribute("members", listOfMembers);
-		redirectAttributes.addAttribute("page", page);
 		
 		return "memberList";
 	}
@@ -58,10 +56,12 @@ public class MemberController {
 	 * @return String 
 	 */
 	@GetMapping("/memberForm")
-	public String customerForm(Model model) {
+	public String customerForm(Model model, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
 
 		Member theMember = new Member();
+		
 		model.addAttribute("member", theMember);
+		redirectAttributes.addAttribute("page", page);
 
 		return "memberForm";
 	}
@@ -75,7 +75,9 @@ public class MemberController {
 	 * @return String 
 	 */
 	@PostMapping("/saveMember")
-	public String saveCustomer(@Valid@ModelAttribute("member") Member theMember, BindingResult bindingResult) {
+	public String saveCustomer(@Valid@ModelAttribute("member") Member theMember, BindingResult bindingResult, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
+		
+		redirectAttributes.addAttribute("page", page);
 		
 		//perform form validation
 		if (bindingResult.hasErrors()) {
@@ -94,16 +96,18 @@ public class MemberController {
 	 * @return String 
 	 */
 	@GetMapping(value= {"/updateMember", "/viewMember"})
-	public String updateMember(@RequestParam("id") int theId, Model model, HttpServletRequest request) {
+	public String updateMember(@RequestParam("id") int theId, Model model, HttpServletRequest request, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
 		
 		//get member from data base via member primary key(id)
 		Member theMember = memberService.getMember(theId);
 		
 		//add member to model for data binding
 		model.addAttribute("member", theMember);
+		redirectAttributes.addAttribute("page", page);
 		
 		//get Servlet path
 		String requestPath = request.getServletPath();
+		
 	
 		if(requestPath.endsWith("/updateMember")) {
 			return "memberForm";
@@ -118,10 +122,12 @@ public class MemberController {
 	 * @return String 
 	 */
 	@GetMapping("/deleteMember")
-	public String deleteMember(@RequestParam("id") int theId) {
+	public String deleteMember(@RequestParam("id") int theId, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
 		
 		//delete member from data base via id
 		memberService.deleteMember(theId);
+		
+		redirectAttributes.addAttribute("page", page);
 		
 		return "redirect:homePage";
 	}
@@ -134,7 +140,7 @@ public class MemberController {
 	 * @return String 
 	 */
 	@PostMapping("/memberSearch")
-	public String searchForMember(@RequestParam("memberName") String bookTitle, Model model) {
+	public String searchForMember(@RequestParam("memberName") String bookTitle, Model model, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
 		
 		//get members
 		List<Member> listOfSelectedMembers = memberService.searchMember(bookTitle);
@@ -143,10 +149,10 @@ public class MemberController {
 		model.addAttribute("members", listOfSelectedMembers);
 		model.addAttribute("backButton", true);
 		
+		redirectAttributes.addAttribute("page", page);
+
+		
 		return "memberList";
 	}
-	
-	
-	
 
 }

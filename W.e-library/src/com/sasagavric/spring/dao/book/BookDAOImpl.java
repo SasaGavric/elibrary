@@ -8,8 +8,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sasagavric.spring.entity.Author;
-import com.sasagavric.spring.entity.Book;
+import com.sasagavric.entity.Author;
+import com.sasagavric.entity.Book;
 
 /**
  * @author Sasa Gavric
@@ -33,7 +33,7 @@ public class BookDAOImpl implements BookDAO {
 		
 		
 		@SuppressWarnings("unchecked")
-		List<Book> listOfBooks = session.createQuery("from Book").setFirstResult(page).setMaxResults(10).getResultList();
+		List<Book> listOfBooks = session.createQuery("from Book").setFirstResult(page).setMaxResults(11).getResultList();
 		
 		return listOfBooks;
 	}

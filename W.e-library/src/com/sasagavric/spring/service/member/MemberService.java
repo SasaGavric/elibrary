@@ -2,7 +2,7 @@ package com.sasagavric.spring.service.member;
 
 import java.util.List;
 
-import com.sasagavric.spring.entity.Member;
+import com.sasagavric.entity.Member;
 
 public interface MemberService {
 

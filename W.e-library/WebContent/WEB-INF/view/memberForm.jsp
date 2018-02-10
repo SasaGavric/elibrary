@@ -27,6 +27,7 @@
 		<form:form action="saveMember" modelAttribute="member" method="POST">
 			
 			<form:hidden path="id"/>
+			<input type="hidden" name="page" value="${param.page}"/>
 			
 			<div class="form-group">
 				<form:label path="firstName">First Name</form:label>
@@ -69,7 +70,7 @@
 			</div>
 
 			<button type="submit" class="btn btn-default">Submit</button>
-			<a href="<c:url value="homePage"></c:url>" ><button type="button" class="btn btn-default btn-onright">Cancel</button></a>
+			<a href="<c:url value="homePage"><c:param name="page" value="${param.page}"/></c:url>" ><button type="button" class="btn btn-default btn-onright">Cancel</button></a>
 		</form:form>
 
 	</div>

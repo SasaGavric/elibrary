@@ -29,7 +29,7 @@
 		<c:url var="backToviewBook" value="viewBook">
 			<c:param name="id" value="${id}"></c:param>
 		</c:url>
-		<a href="<c:url value="${backToviewBook}"></c:url>"><button type="button" class="btn btn-default btn-onleft">Back</button></a>
+		<a href="<c:url value="${backToviewBook}"><c:param name="page" value="${param.page}"/></c:url>"><button type="button" class="btn btn-default btn-onleft">Back</button></a>
 		
 		<br><br>
 	</div>

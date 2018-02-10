@@ -9,8 +9,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.InitBinder;
-
-import com.sasagavric.spring.entity.Author;
+import com.sasagavric.entity.Author;
 import com.sasagavric.spring.service.book.BookService;
 
 /**
@@ -19,49 +18,49 @@ import com.sasagavric.spring.service.book.BookService;
  */
 @ControllerAdvice
 public class AdviceController {
-	
+
 	@Autowired
 	private BookService bookService;
 
-	
 	/**
 	 * init binder which will convert String data to valid format (trim String)
+	 * 
 	 * @param dataBinder
 	 */
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
-				
-		//Create custom editor which will trim all white spaces from String 
-		//or it will return null if there is only white spaces
+
+		// Create custom editor which will trim all white spaces from String
+		// or it will return null if there is only white spaces
 		StringTrimmerEditor ste = new StringTrimmerEditor(true);
-				
-		//Register custom editor
+
+		// Register custom editor
 		dataBinder.registerCustomEditor(String.class, ste);
-				
-		}
-	
+
+	}
+
 	/**
 	 * Convert author id to Author object
+	 * 
 	 * @param binder
 	 */
 	@InitBinder
-    public void initBinder(ServletRequestDataBinder binder) {
-		
-     binder.registerCustomEditor(List.class, "listOfAuthors", new CustomCollectionEditor(List.class) {
-    	 
+	public void initBinder(ServletRequestDataBinder binder) {
 
-            protected Object convertElement(Object element) {
-                if (element != null) {
-                    int authorId = Integer.parseInt(element.toString());
-                    Author theAuthor = bookService.getById(authorId);
-                    return theAuthor;
+		binder.registerCustomEditor(List.class, "listOfAuthors", new CustomCollectionEditor(List.class) {
 
-                }
-                return null;
-            }
+			protected Object convertElement(Object element) {
+				if (element != null) {
+					int authorId = Integer.parseInt(element.toString());
+					Author theAuthor = bookService.getById(authorId);
+					return theAuthor;
 
-        });
+				}
+				return null;
+			}
 
-    }
+		});
+
+	}
 
 }

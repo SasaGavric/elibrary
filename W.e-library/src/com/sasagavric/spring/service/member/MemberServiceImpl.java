@@ -5,8 +5,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sasagavric.entity.Member;
 import com.sasagavric.spring.dao.member.MemberDAO;
-import com.sasagavric.spring.entity.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService{

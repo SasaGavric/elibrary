@@ -22,8 +22,8 @@
 	
 	<div class="control-panel">
 	<ul class="nav nav-pills nav-justified">
- 		<li role="presentation" ><a href="${pageContext.request.contextPath}/member/homePage">Members</a></li>
-  		<li role="presentation" class="active"><a href="<c:url value="bookList"></c:url>">Books</a></li>
+ 		<li role="presentation" ><a href="${pageContext.request.contextPath}/member/homePage?page=0">Members</a></li>
+  		<li role="presentation" class="active"><a href="<c:url value="bookList?page=0"></c:url>">Books</a></li>
 	</ul>
 	</div>
 	
@@ -54,7 +54,7 @@
 		</thead>
 		
 		<tbody>		
-			<c:forEach var="book" items="${books}" begin="0" end="10">
+			<c:forEach var="book" items="${books}" begin="0" end="9">
 				<tr>
 					<td>${book.id}</td>
 					<td class="max-field" >${book.title}</td>
@@ -110,8 +110,8 @@
     				<li class="previous"><a href="${previous}" ><span aria-hidden="true">&larr;</span> Previous</a></li>
     				</c:if>
     				
-    				<c:if test="${fn:length(books) gt  (param.page + 9) }">
-    				<li class="next"><a href="${next}" onclick="${counter+9}">Next <span aria-hidden="true">&rarr;</span></a></li>
+    				<c:if test="${fn:length(books) eq  11 }">
+    				<li class="next"><a href="${next}">Next <span aria-hidden="true">&rarr;</span></a></li>
     				</c:if>
   				</ul>
 			</nav>

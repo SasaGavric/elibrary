@@ -7,9 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sasagavric.entity.Author;
+import com.sasagavric.entity.Book;
 import com.sasagavric.spring.dao.book.BookDAO;
-import com.sasagavric.spring.entity.Author;
-import com.sasagavric.spring.entity.Book;
 
 /**
  * @author Sasa Gavric
