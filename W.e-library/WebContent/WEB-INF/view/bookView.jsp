@@ -72,6 +72,9 @@
 			<tr>
 				<td> <i class="fa fa-globe fa-2x" aria-hidden="true"></i>${book.language}</td>
 			</tr>
+			<tr>
+				<td> <i class="fa fa-globe fa-2x" aria-hidden="true"></i>${book.booksInStock}</td>
+			</tr>
 		</tbody>
  
 		</table>

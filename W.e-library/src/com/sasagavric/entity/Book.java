@@ -70,6 +70,13 @@ public class Book {
 	@Size(min=1, max=2082)
 	private String coverImageUrl;
 	
+	@NotNull
+	@Min(0)
+	@Max(50000)
+	@Column(name="book_in_stock")
+	
+	private int booksInStock;
+	
 	@ManyToMany(fetch=FetchType.EAGER, cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(
 			name="book_author",
@@ -145,6 +152,14 @@ public class Book {
 
 	public void setListOfAuthors(List<Author> listOfAuthors) {
 		this.listOfAuthors = listOfAuthors;
+	}
+
+	public int getBooksInStock() {
+		return booksInStock;
+	}
+
+	public void setBooksInStock(int booksInStock) {
+		this.booksInStock = booksInStock;
 	}
 	
 	

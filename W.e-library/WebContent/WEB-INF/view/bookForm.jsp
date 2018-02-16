@@ -65,7 +65,11 @@
 				<form:textarea path="description" class="form-control txtarea" rows="8"/>
 				<form:errors path="description" cssClass="errors"/>		
 			</div>
-			
+			<div class="form-group">
+				<form:label path="booksInStock">Books in stock: </form:label>
+				<form:input path="booksInStock" cssClass="form-control" id="exampleInputName2" placeholder="15"/>
+				<form:errors path="booksInStock" cssClass="errors"/>
+			</div>
 			
 
 			<button type="submit" class="btn btn-default">Submit</button>

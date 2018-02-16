@@ -19,22 +19,20 @@ public class EmailAspect {
 	private JavaMailSender mailSender;
 	
 	/**
-	 * If HibernateException occur in web app send mail with description 
+	 * If HibernateException occur in web app, send mail with description. 
 	 * @param theJoinPoint
 	 * @param exc
 	 */
 	@AfterThrowing(pointcut = "execution( * com.sasagavric.spring.dao.*.*.*(..) )", throwing="exc")
 	public void adviceForEverything(JoinPoint theJoinPoint, HibernateException exc) {
 		
-		System.out.println("EXception: " + exc.toString());
-		
+		//send mail 
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setTo("springmvcemailsender@gmail.com");
 		email.setSubject("Database problem " + new Date());
 		email.setText(exc.getLocalizedMessage());
 		
 		mailSender.send(email);
-		System.out.println("Mail sended");
 		
 	}
 
