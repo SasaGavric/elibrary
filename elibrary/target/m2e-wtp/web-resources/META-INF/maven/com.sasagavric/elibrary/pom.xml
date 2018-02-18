@@ -43,6 +43,7 @@
 			<version>${springframework.version}</version>
 		</dependency>
 
+		<!-- Spring Aspects support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>

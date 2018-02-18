@@ -7,7 +7,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8"/>
-<title>eLibrary-${member.firstName} ${member.lastName}</title>
+<title>Book-${book.title}</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8" >
-<title>Author</title>
+<title>New Author</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"

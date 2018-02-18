@@ -5,7 +5,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8">
-<title>eLibrary-Members</title>
+<title>Members</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/mystyle.css" />

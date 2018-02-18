@@ -3,7 +3,7 @@
 <html lang="eng" >
 <head>
 <meta charset="UTF-8"/>
-<title>ERROR</title>
+<title>Error</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/erorstyle.css"/>
