@@ -7,7 +7,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8"/>
-<title>Book-${book.title}</title>
+<title>Book-${book.title} - elibrary</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -73,7 +73,7 @@
 				<td> <i class="fa fa-globe fa-2x" aria-hidden="true"></i>${book.language}</td>
 			</tr>
 			<tr>
-				<td> <i class="fa fa-globe fa-2x" aria-hidden="true"></i>${book.booksInStock}</td>
+				<td> <i class="fa fa-book fa-2x" aria-hidden="true"></i> ${book.booksInStock}</td>
 			</tr>
 		</tbody>
  

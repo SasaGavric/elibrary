@@ -6,7 +6,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8">
-<title>Book-${book.title}</title>
+<title>Book-${book.title} - elibrary</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/mystyle.css" />

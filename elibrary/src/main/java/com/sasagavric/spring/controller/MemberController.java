@@ -38,7 +38,7 @@ public class MemberController {
 	 * Add all members from database in Model, and return memberList.jsp page,
 	 * which will display members to client. 
 	 * @param model
-	 * @return String 
+	 * @return  
 	 */
 	@GetMapping("/homePage")
 	public String homePage(Model model, @RequestParam(name="page", defaultValue="0") int page) {
@@ -53,7 +53,7 @@ public class MemberController {
 	/**
 	 * Return form for adding new member to database via data binding
 	 * @param model
-	 * @return String 
+	 * @return  
 	 */
 	@GetMapping("/memberForm")
 	public String customerForm(Model model, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
@@ -72,7 +72,7 @@ public class MemberController {
 	 * valid error message will appear on form.
 	 * @param theMember
 	 * @param bindingResult
-	 * @return String 
+	 * @return  
 	 */
 	@PostMapping("/saveMember")
 	public String saveCustomer(@Valid@ModelAttribute("member") Member theMember, BindingResult bindingResult, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
@@ -93,7 +93,7 @@ public class MemberController {
 	 * @param theId
 	 * @param model
 	 * @param request
-	 * @return String 
+	 * @return  
 	 */
 	@GetMapping(value= {"/updateMember", "/viewMember"})
 	public String updateMember(@RequestParam("id") int theId, Model model, HttpServletRequest request, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
@@ -119,7 +119,7 @@ public class MemberController {
 	/**
 	 * Delete member from database via member id
 	 * @param theId
-	 * @return String 
+	 * @return  
 	 */
 	@GetMapping("/deleteMember")
 	public String deleteMember(@RequestParam("id") int theId, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
@@ -137,7 +137,7 @@ public class MemberController {
 	 * Search for book in database via book id
 	 * @param bookTitle
 	 * @param model
-	 * @return String 
+	 * @return  
 	 */
 	@PostMapping("/memberSearch")
 	public String searchForMember(@RequestParam("memberName") String bookTitle, Model model, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {

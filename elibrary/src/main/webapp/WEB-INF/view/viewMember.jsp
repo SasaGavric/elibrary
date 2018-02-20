@@ -7,7 +7,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8"/>
-<title>Member-${member.firstName} ${member.lastName}</title>
+<title>Member-${member.firstName} ${member.lastName} - elibrary</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

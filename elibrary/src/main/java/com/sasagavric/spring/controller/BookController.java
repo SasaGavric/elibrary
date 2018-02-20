@@ -35,7 +35,7 @@ public class BookController {
 	 * Show 10 books, based on number of page
 	 * @param page
 	 * @param model
-	 * @return String
+	 * @return 
 	 */
 	@GetMapping("/bookList")
 	public String getBooks(@RequestParam(value = "page",defaultValue="0") int page, Model model) {
@@ -52,7 +52,7 @@ public class BookController {
 	/**
 	 * Return form for adding new book to database via data binding
 	 * @param model
-	 * @return String
+	 * @return 
 	 */
 	@GetMapping("/bookForm")
 	public String bookForm(Model model) {
@@ -77,7 +77,7 @@ public class BookController {
 	 * @param page
 	 * @param model
 	 * @param redirectAttributes
-	 * @return String (redirect to bookList)
+	 * @return 
 	 */
 	@PostMapping("/saveBook")
 	public String saveBook(@Valid @ModelAttribute("book") Book theBook, BindingResult br,
@@ -104,7 +104,7 @@ public class BookController {
 	 * @param page
 	 * @param redirectAttributes
 	 * @param model
-	 * @return String
+	 * @return 
 	 */
 	@GetMapping("/updateBook")
 	public String updateBook(@RequestParam("id") int theId, @RequestParam("page") int page,
@@ -130,7 +130,7 @@ public class BookController {
 	 * @param page
 	 * @param redirectAttributes
 	 * @param model
-	 * @return String
+	 * @return 
 	 */
 	@GetMapping("/viewBook")
 	public String viewBook(@RequestParam("id") int theId, @RequestParam("page") int page,
@@ -154,7 +154,7 @@ public class BookController {
 	 * @param model
 	 * @param page
 	 * @param redirectAttributes
-	 * @return String
+	 * @return 
 	 */
 	@GetMapping("/bookOverview")
 	public String bookOverview(@RequestParam("bookId") int theId, Model model, @RequestParam("page") int page,
@@ -182,7 +182,7 @@ public class BookController {
 	 * @param page
 	 * @param redirectAttributes
 	 * @param model
-	 * @return String
+	 * @return 
 	 */
 	@PostMapping("/bookSearch")
 	public String bookSearch(@RequestParam("name") String theName, @RequestParam("page") int page,
@@ -205,7 +205,7 @@ public class BookController {
 	 * @param theId
 	 * @param page
 	 * @param redirectAttributes
-	 * @return String (redirect to bookList)
+	 * @return 
 	 */
 	@GetMapping("/deleteBook")
 	public String deleteBook(@RequestParam("id") int theId, @RequestParam("page") int page,
@@ -226,7 +226,7 @@ public class BookController {
 	 * @param model
 	 * @param page
 	 * @param redirectAttributes
-	 * @return String
+	 * @return 
 	 */
 	@GetMapping("/authorForm")
 	public String getAuthorForm(Model model, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
@@ -246,7 +246,7 @@ public class BookController {
 	 * @param br
 	 * @param page
 	 * @param redirectAttributes
-	 * @return String
+	 * @return 
 	 */
 	@PostMapping("/saveAuthor")
 	public String saveAuthor(@Valid @ModelAttribute("author") Author theAuthor, BindingResult br,

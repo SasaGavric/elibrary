@@ -6,7 +6,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8">
-<title>New Book</title>
+<title>New Book  - elibrary</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -38,7 +38,7 @@
 			 <div class="form-group form-authors">
 				<form:label path="listOfAuthors">Authors (Hold Ctrl for multiple select)</form:label>
 				<form:select path="listOfAuthors" multiple="true" size="3" class="form-control authors" items="${listOfAuthors}" itemValue="id"  />
-				<a href="<c:url value="authorForm"> <c:param name="page" value="${param.page}"/> </c:url>"><button type="button" class="btn btn-primary author-btn">Add New Author</button></a>
+				<a href="<c:url value="authorForm"> <c:param name="page" value="${param.page}"/> </c:url>"><button type="button" class="btn btn-primary author-btn">Add Author</button></a>
 			</div>
 			<div class="form-group">
 				<form:label path="dateOfIssue">Publication Date</form:label>

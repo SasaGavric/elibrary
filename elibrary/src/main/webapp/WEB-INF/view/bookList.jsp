@@ -7,7 +7,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8">
-<title>Books</title>
+<title>Books - elibrary</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/mystyle.css" />
@@ -29,7 +29,7 @@
 	
 	<hr>
 	
-	<a href="<c:url value="bookForm" ><c:param name="page" value="${param.page}"></c:param></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add New Book</button></a>
+	<a href="<c:url value="bookForm" ><c:param name="page" value="${param.page}"></c:param></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add Book</button></a>
 	
 	<form class="form-inline" action="bookSearch" method="POST">
 		<input type="hidden" name="page" value="0">

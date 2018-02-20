@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8" >
-<title>New Author</title>
+<title>New Author - elibrary</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -23,7 +23,7 @@
 	<h1>eLibrary</h1>
 
 	<div class="jumbotron" id="customerForm">
-	<h2 class="form-header">Add Book</h2>
+	<h2 class="form-header">Add Author</h2>
 	
 	<form:form action="saveAuthor" modelAttribute="author" method="POST">
 	

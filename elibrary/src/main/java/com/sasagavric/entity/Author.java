@@ -14,6 +14,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 @Entity
 @Table(name = "author")
 public class Author extends Person {

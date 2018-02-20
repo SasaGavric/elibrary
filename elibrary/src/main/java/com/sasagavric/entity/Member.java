@@ -16,6 +16,10 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 @Entity
 @Table(name = "member")
 public class Member extends Person {

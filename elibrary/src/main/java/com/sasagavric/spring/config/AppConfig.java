@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -38,7 +39,7 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	/**
 	 * define a bean for view resolver
-	 * @return ViewResolver
+	 * @return 
 	 */
 	@Bean
 	public ViewResolver viewResolver() {
@@ -53,7 +54,7 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	/**
 	 * define bean for DataSource (database xonnection configuration)
-	 * @return DataSource
+	 * @return 
 	 */
 	@Bean
 	public DataSource myDataSource() {
@@ -85,7 +86,7 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	/**
 	 * set sql dialect and show hibernate transactions
-	 * @return Properties
+	 * @return 
 	 */
 	private Properties getHibernateProperties() {
 
@@ -119,7 +120,7 @@ public class AppConfig implements WebMvcConfigurer {
 	/**
 	 * define bean for transaction management
 	 * @param sessionFactory
-	 * @return HibernateTransactionManager
+	 * @return 
 	 */
 	@Bean
 	@Autowired
@@ -151,10 +152,25 @@ public class AppConfig implements WebMvcConfigurer {
 		WebMvcConfigurer.super.configureHandlerExceptionResolvers(resolvers);
 	}	
 	
+	/**
+	 * 
+	 * @return
+	 */
+	@Bean("messageSource")
+	public ResourceBundleMessageSource customMessages() {
+		
+		ResourceBundleMessageSource messagesResource = new ResourceBundleMessageSource();
+		
+		messagesResource.addBasenames("resources/messages");
+		
+		return messagesResource;
+		
+	}
+	
 	
 	/**
 	 * enable support for sending mail
-	 * @return JavaMailSenderImpl
+	 * @return 
 	 */
 	@Bean
 	public JavaMailSenderImpl javaMailSenderimpl() {

@@ -6,7 +6,7 @@
 <html lang="eng">
 <head>
 <meta charset="UTF-8">
-<title>New Member</title>
+<title>New Member - elibrary</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

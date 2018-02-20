@@ -7,6 +7,10 @@ import javax.validation.constraints.Size;
 
 import org.springframework.beans.factory.annotation.Value;
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 @MappedSuperclass
 public class Person {
 	
