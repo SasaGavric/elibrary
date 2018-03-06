@@ -34,7 +34,7 @@
 	<form class="form-inline" action="memberSearch" method="POST">
 		<input type="hidden" name="page" value="0">
   		<div class="form-group">
-    		<label for="exampleInputName2">Search Member:</label>   		
+    		<label for="exampleInputName2">Search member:</label>   		
    			 <input type="text" name="memberName" class="form-control" id="exampleInputName2"  placeholder="Jane Doe" required="required">
  		</div>
   		<button type="submit" class="btn btn-default">Search</button>

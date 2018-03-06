@@ -34,7 +34,7 @@
 	<form class="form-inline" action="bookSearch" method="POST">
 		<input type="hidden" name="page" value="0">
   		<div class="form-group">
-    		<label for="exampleInputName2">Search for Book:</label>   		
+    		<label for="exampleInputName2">Search book:</label>   		
    			 <input type="text" name="name" class="form-control" id="exampleInputName2"  placeholder="The Lord of the Rings" required="required">
  		</div>
   		<button type="submit" class="btn btn-default">Search</button>
@@ -47,7 +47,7 @@
 				<th>Id</th>
 				<th>Title</th>
 				<th>Author</th>
-				<th>Publication date</th>
+				<th>Publication Date</th>
 				<th>Language</th>	
 				<th>Action</th>	
 			</tr>		

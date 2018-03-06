@@ -3,6 +3,7 @@ package com.sasagavric.entity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,7 +18,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -63,7 +63,7 @@ public class Member extends Person {
 	@Column(name="image_url")
 	private String profileImageUrl;
 	
-	@OneToMany(mappedBy="member", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.EAGER)
 	private List<BorrowedBook> borrowedBooks = new ArrayList<>();
 
 	//default constructor
