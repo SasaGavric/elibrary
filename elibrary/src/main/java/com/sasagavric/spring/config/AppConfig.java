@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -25,9 +26,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.sasagavric.spring.formatter.BookFormatter;
+import com.sasagavric.spring.formatter.MemberFormatter;
+
 
 /**
- * @author Sasa
+ * @author Sasa Gavric
  *
  */
 @Configuration
@@ -36,6 +40,14 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 @ComponentScan("com.sasagavric.spring")
 public class AppConfig implements WebMvcConfigurer {
+	
+	
+	@Autowired
+	private MemberFormatter memberFormatter;
+	
+	@Autowired
+	private BookFormatter bookFormatter;
+	
 	
 	/**
 	 * define a bean for view resolver
@@ -95,6 +107,7 @@ public class AppConfig implements WebMvcConfigurer {
 
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		props.setProperty("hibernate.show_sql", "true");
+		props.setProperty("spring.jpa.properties.javax.persistence.validation.mode", "none");
 		
 		return props;				
 	}
@@ -113,6 +126,7 @@ public class AppConfig implements WebMvcConfigurer {
 		sessionFactory.setDataSource(myDataSource());
 		sessionFactory.setPackagesToScan("com.sasagavric.entity");
 		sessionFactory.setHibernateProperties(getHibernateProperties());
+
 		
 		return sessionFactory;
 	}
@@ -191,6 +205,16 @@ public class AppConfig implements WebMvcConfigurer {
 		
 		return mailSender;
 	}
+
+	/* Add Formatters (convert String id to object)
+	 * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer#addFormatters(org.springframework.format.FormatterRegistry)
+	 */
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		registry.addFormatter(memberFormatter);
+		registry.addFormatter(bookFormatter);		
+	}
+
 	
 	
 

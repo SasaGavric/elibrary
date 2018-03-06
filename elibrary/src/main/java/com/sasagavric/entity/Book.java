@@ -41,7 +41,7 @@ public class Book {
 	
 	@Column(name="title")
 	@NotNull
-	@Size(min = 2, max = 35)
+	@Size(min = 2, max = 70)
 	@Value("${foo.firstName}")
 	private String title;
 	
@@ -74,7 +74,6 @@ public class Book {
 	@Min(0)
 	@Max(50000)
 	@Column(name="book_in_stock")
-	
 	private int booksInStock;
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

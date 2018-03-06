@@ -22,7 +22,7 @@ public class BookDAOImpl implements BookDAO {
 
 	
 	/* 
-	 * This method will load all books from data base
+	 * this method will load all books from data base
 	 * @see com.sasagavric.spring.dao.book.BookDAO#getListOfBooks()
 	 */
 	@Override
@@ -37,7 +37,7 @@ public class BookDAOImpl implements BookDAO {
 		return listOfBooks;
 	}
 
-	/* This method will found one book via book id
+	/* this method will found one book via book id
 	 * @see com.sasagavric.spring.dao.book.BookDAO#getBook(int)
 	 */
 	@Override
@@ -50,7 +50,7 @@ public class BookDAOImpl implements BookDAO {
 		return theBook;
 	}
 
-	/* This method will search for list of books via book title
+	/* this method will search for list of books via book title
 	 * @see com.sasagavric.spring.dao.book.BookDAO#searchFoBook(java.lang.String)
 	 */
 	@Override
@@ -68,7 +68,7 @@ public class BookDAOImpl implements BookDAO {
 		return theListOfBooks;
 	}
 
-	/* This method will delete book form data base via book identifier
+	/* this method will delete book form data base via book identifier
 	 * @see com.sasagavric.spring.dao.book.BookDAO#deleteBook(com.sasagavric.spring.entity.Book)
 	 */
 	@Override
@@ -80,7 +80,7 @@ public class BookDAOImpl implements BookDAO {
 		
 	}
 
-	/* Get all authors from data base
+	/* get all authors from data base
 	 * @see com.sasagavric.spring.dao.book.BookDAO#getListOfAuthors()
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class BookDAOImpl implements BookDAO {
 		return listOfAuthors;
 	}
 
-	/* Save Book theBook in database or update if object already exist in database
+	/* save Book theBook in database or update if object already exist in database
 	 * @see com.sasagavric.spring.dao.book.BookDAO#saveBookToDataBase(com.sasagavric.spring.entity.Book)
 	 */
 	@Override
@@ -106,7 +106,7 @@ public class BookDAOImpl implements BookDAO {
 		
 	}
 
-	/* Get one author from database via author identifier
+	/* get one author from database via author identifier
 	 * @see com.sasagavric.spring.dao.book.BookDAO#getAuthor(int)
 	 */
 	@Override
@@ -120,7 +120,7 @@ public class BookDAOImpl implements BookDAO {
 		
 	}
 
-	/* Save new author in database
+	/* save new author in database
 	 * @see com.sasagavric.spring.dao.book.BookDAO#saveNewAuthor(com.sasagavric.spring.entity.Author)
 	 */
 	@Override

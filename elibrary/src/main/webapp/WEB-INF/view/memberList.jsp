@@ -28,6 +28,8 @@
 	<hr>
 	
 	<a href="<c:url value="memberForm"><c:param name="page" value="${param.page}"/></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add Member</button></a>
+	<a href="<c:url value="/borrowReturn/chooseMemberId"><c:param name="page" value="${param.page}"/></c:url>" ><button type="button" class="btn btn-default navbar-btn">Borrow &amp; Return </button></a>
+	
 	
 	<form class="form-inline" action="memberSearch" method="POST">
 		<input type="hidden" name="page" value="0">

@@ -61,7 +61,7 @@
 				<td> <i class="fa fa-user fa-2x" aria-hidden="true"></i>
 					<ol class="ordered-list">
 					<c:forEach var="author" items="${book.listOfAuthors }">											
-							<li><a href="" >${author.firstName} ${author.lastName}</a></li>						
+							<li>${author.firstName} ${author.lastName}</li>						
 					</c:forEach>
 					</ol>
 				</td>

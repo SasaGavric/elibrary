@@ -22,9 +22,6 @@
 
 	<h1>eLibrary</h1>
 	
-	
-
-
 	<div class="jumbotron" id="customerForm">
 
 	
@@ -40,7 +37,6 @@
 					<img src="${member.profileImageUrl}" alt="..." class="img-circle cover">
 			</c:otherwise>	
 		</c:choose>
-		
 		
 		
 		<table class="table">

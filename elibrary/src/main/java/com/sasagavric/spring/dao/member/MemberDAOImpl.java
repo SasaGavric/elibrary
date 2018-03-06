@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sasagavric.entity.Book;
 import com.sasagavric.entity.Member;
 
 
@@ -20,7 +21,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Autowired
 	private SessionFactory factory;
 
-	/* Get all members from database
+	/* get all members from database (10 per page)
 	 * @see com.sasagavric.spring.dao.member.MemberDAO#listOfMembers()
 	 */
 	@Override
@@ -34,8 +35,23 @@ public class MemberDAOImpl implements MemberDAO {
 	
 		return listOfMembers;
 	}
+	
+	/* get all members from database
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#listOfMembers()
+	 */
+	@Override
+	public List<Member> listOfAllMembers() {
+		
+		//create session
+		Session session = factory.getCurrentSession();
+		
+		@SuppressWarnings("unchecked")
+		List<Member> listOfMembers = session.createQuery("from Member").getResultList();
+	
+		return listOfMembers;
+	}
 
-	/* Update if object is already persisted in database or save if client add new member
+	/* update if object is already persisted in database or save if client add new member
 	 * @see com.sasagavric.spring.dao.member.MemberDAO#saveMember(com.sasagavric.spring.entity.Member)
 	 */
 	@Override
@@ -64,6 +80,9 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+	/* delete one member
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#deleteMember(int)
+	 */
 	@Override
 	public void deleteMember(int theId) {
 		//create Session
@@ -82,6 +101,9 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+	/* search for members via firstName and last name
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#searchForMember(java.lang.String, java.lang.String)
+	 */
 	@Override
 	public List<Member> searchForMember(String firstName, String lastName) {
 		
@@ -99,6 +121,9 @@ public class MemberDAOImpl implements MemberDAO {
 		return listOfSelectedMembers;
 	}
 
+	/* search for members via firstName or last name
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#searchForMember(java.lang.String)
+	 */
 	@Override
 	public List<Member> searchForMember(String firstOrLastName) {
 		
@@ -113,6 +138,19 @@ public class MemberDAOImpl implements MemberDAO {
 		List<Member> listOfSelectedMembers = memberQuery.getResultList();
 		
 		return listOfSelectedMembers;
+	}
+
+	/* get all books that are available (booksInStock > 0)
+	 * @see com.sasagavric.spring.dao.member.MemberDAO#getAllAvailableBooks()
+	 */
+	@Override
+	public List<Book> getAllAvailableBooks() {
+		Session session = factory.getCurrentSession();
+		
+		@SuppressWarnings("unchecked")
+		List<Book> listOfAvailableBooks = session.createQuery("from Book where booksInStock > 0 ").getResultList();
+		
+		return listOfAvailableBooks;
 	}
 
 }

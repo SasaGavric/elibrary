@@ -35,7 +35,7 @@ public class MemberController {
 	ApplicationContext applicationContext;
 
 	/**
-	 * Add all members from database in Model, and return memberList.jsp page,
+	 * add all members from database in Model, and return memberList.jsp page,
 	 * which will display members to client. 
 	 * @param model
 	 * @return  
@@ -51,7 +51,7 @@ public class MemberController {
 
 	
 	/**
-	 * Return form for adding new member to database via data binding
+	 * return form for adding new member to database via data binding
 	 * @param model
 	 * @return  
 	 */
@@ -67,7 +67,7 @@ public class MemberController {
 	}
 
 	/**
-	 * When client fill out form, this method will validate form data.
+	 * when client fill out form, this method will validate form data.
 	 * If form data is valid new member will be saved to database, if form data is not 
 	 * valid error message will appear on form.
 	 * @param theMember
@@ -89,7 +89,7 @@ public class MemberController {
 	}
 	
 	/**
-	 * Updating existed member via member id
+	 * updating existed member via member id
 	 * @param theId
 	 * @param model
 	 * @param request
@@ -117,7 +117,7 @@ public class MemberController {
 	}
 	
 	/**
-	 * Delete member from database via member id
+	 * delete member from database via member id
 	 * @param theId
 	 * @return  
 	 */
@@ -132,9 +132,8 @@ public class MemberController {
 		return "redirect:homePage";
 	}
 	
-	//search for member by name
 	/**
-	 * Search for book in database via book id
+	 * search for book in database via book id
 	 * @param bookTitle
 	 * @param model
 	 * @return  

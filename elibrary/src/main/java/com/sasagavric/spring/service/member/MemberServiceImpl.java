@@ -9,6 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sasagavric.entity.Member;
 import com.sasagavric.spring.dao.member.MemberDAO;
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 @Service
 public class MemberServiceImpl implements MemberService{
 	
@@ -49,8 +53,7 @@ public class MemberServiceImpl implements MemberService{
 		//create list
 		List<Member> listOfSelectedMembers;
 		
-		//get first and last name 
-		
+		//get first and last name 	
 		String[] firstAndLastName = memberName.split(" ");
 			
 		switch(firstAndLastName.length) {

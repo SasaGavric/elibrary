@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ErrorController {
 
 	/**
-	 * @return String (cat error landing page)
+	 * return error landing page
+	 * @return 
 	 * @throws Exception 
 	 */
 	@GetMapping("/errors")

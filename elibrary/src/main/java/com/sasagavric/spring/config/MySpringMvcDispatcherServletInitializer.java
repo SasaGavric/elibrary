@@ -3,7 +3,7 @@ package com.sasagavric.spring.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
- * @author Sasa
+ * @author Sasa Gavric
  *
  */
 public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.sasagavric.entity.Member;
 
+/**
+ * @author Sasa Gavric
+ *
+ */
 public interface MemberService {
 
 	public List<Member> getListOfMembers(int page);

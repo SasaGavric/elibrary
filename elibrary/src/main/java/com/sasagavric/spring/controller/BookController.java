@@ -5,10 +5,13 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomCollectionEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,15 +33,14 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 
-
 	/**
 	 * Show 10 books, based on number of page
 	 * @param page
 	 * @param model
-	 * @return 
+	 * @return
 	 */
 	@GetMapping("/bookList")
-	public String getBooks(@RequestParam(value = "page",defaultValue="0") int page, Model model) {
+	public String getBooks(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
 
 		// get all books
 		List<Book> listofBooks = bookService.getListOfBooks(page);
@@ -48,11 +50,11 @@ public class BookController {
 		return "bookList";
 	}
 
-	
 	/**
-	 * Return form for adding new book to database via data binding
+	 * return form for adding new book to database via data binding
+	 * 
 	 * @param model
-	 * @return 
+	 * @return
 	 */
 	@GetMapping("/bookForm")
 	public String bookForm(Model model) {
@@ -69,15 +71,15 @@ public class BookController {
 		return "bookForm";
 	}
 
-	
 	/**
-	 * Persist Book object to database
+	 * persist Book object to database
+	 * 
 	 * @param theBook
 	 * @param br
 	 * @param page
 	 * @param model
 	 * @param redirectAttributes
-	 * @return 
+	 * @return
 	 */
 	@PostMapping("/saveBook")
 	public String saveBook(@Valid @ModelAttribute("book") Book theBook, BindingResult br,
@@ -99,12 +101,13 @@ public class BookController {
 	}
 
 	/**
-	 * Update existing book
+	 * update existing book
+	 * 
 	 * @param theId
 	 * @param page
 	 * @param redirectAttributes
 	 * @param model
-	 * @return 
+	 * @return
 	 */
 	@GetMapping("/updateBook")
 	public String updateBook(@RequestParam("id") int theId, @RequestParam("page") int page,
@@ -122,15 +125,15 @@ public class BookController {
 		return "bookForm";
 	}
 
-
 	/**
-	 * View details of one book (id, title, date of publishing, language, etc.) via
+	 * view details of one book (id, title, date of publishing, language, etc.) via
 	 * book id, and add book to Model.
+	 * 
 	 * @param theId
 	 * @param page
 	 * @param redirectAttributes
 	 * @param model
-	 * @return 
+	 * @return
 	 */
 	@GetMapping("/viewBook")
 	public String viewBook(@RequestParam("id") int theId, @RequestParam("page") int page,
@@ -146,15 +149,15 @@ public class BookController {
 		return "bookView";
 	}
 
-
 	/**
-	 * Some books have description and this method will provide description for
+	 * some books have description and this method will provide description for
 	 * specific book
+	 * 
 	 * @param theId
 	 * @param model
 	 * @param page
 	 * @param redirectAttributes
-	 * @return 
+	 * @return
 	 */
 	@GetMapping("/bookOverview")
 	public String bookOverview(@RequestParam("bookId") int theId, Model model, @RequestParam("page") int page,
@@ -175,14 +178,15 @@ public class BookController {
 		return "bookOverview";
 	}
 
-	
 	/**
-	 * Search for one or more books in database via book title (full title or word-s in book)
+	 * search for one or more books in database via book title (full title or word-s
+	 * in book)
+	 * 
 	 * @param theName
 	 * @param page
 	 * @param redirectAttributes
 	 * @param model
-	 * @return 
+	 * @return
 	 */
 	@PostMapping("/bookSearch")
 	public String bookSearch(@RequestParam("name") String theName, @RequestParam("page") int page,
@@ -199,13 +203,13 @@ public class BookController {
 		return "bookList";
 	}
 
-	
 	/**
-	 * Delete selected book from database
+	 * delete selected book from database
+	 * 
 	 * @param theId
 	 * @param page
 	 * @param redirectAttributes
-	 * @return 
+	 * @return
 	 */
 	@GetMapping("/deleteBook")
 	public String deleteBook(@RequestParam("id") int theId, @RequestParam("page") int page,
@@ -220,13 +224,14 @@ public class BookController {
 		return "redirect:bookList";
 	}
 
-	
 	/**
-	 * If new book has no author, this method will provide form for adding new author
+	 * if new book has no author, this method will provide form for adding new
+	 * author
+	 * 
 	 * @param model
 	 * @param page
 	 * @param redirectAttributes
-	 * @return 
+	 * @return
 	 */
 	@GetMapping("/authorForm")
 	public String getAuthorForm(Model model, @RequestParam("page") int page, RedirectAttributes redirectAttributes) {
@@ -239,14 +244,14 @@ public class BookController {
 		return "authorForm";
 	}
 
-	
 	/**
-	 * Persist new author in database
+	 * persist new author in database
+	 * 
 	 * @param theAuthor
 	 * @param br
 	 * @param page
 	 * @param redirectAttributes
-	 * @return 
+	 * @return
 	 */
 	@PostMapping("/saveAuthor")
 	public String saveAuthor(@Valid @ModelAttribute("author") Author theAuthor, BindingResult br,
@@ -261,5 +266,29 @@ public class BookController {
 			return "redirect:bookForm";
 		}
 	}
-	
+
+	/**
+	 * convert author id to Author object
+	 * 
+	 * @param binder
+	 */
+	@InitBinder
+	public void initBinder(ServletRequestDataBinder binder) {
+
+		binder.registerCustomEditor(List.class, "listOfAuthors", new CustomCollectionEditor(List.class) {
+
+			protected Object convertElement(Object element) {
+				if (element != null) {
+					int authorId = Integer.parseInt(element.toString());
+					Author theAuthor = bookService.getById(authorId);
+					return theAuthor;
+
+				}
+				return null;
+			}
+
+		});
+
+	}
+
 }

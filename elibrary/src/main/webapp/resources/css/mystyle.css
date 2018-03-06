@@ -167,3 +167,42 @@ i{
 	margin-left: 40px;
 	margin-right: 40px;
 }
+
+h3 {
+  position: relative;
+  text-align: center;
+}
+
+h3 span {
+  background: #eee;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+
+h3:before {
+  background: black;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+    top: 50%;
+  width: 100%;
+}
+
+h3:before {
+  left: 0;
+}
+
+.select-book{
+	width: 80%;
+	margin-right:2%;
+	margin-bottom:5%;
+	display: inline;	
+}
+
+#borrowReturn{
+	width: 25%;
+	padding-right:4%;
+	padding-left: 4%;
+}
