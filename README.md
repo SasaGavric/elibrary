@@ -1,2 +1,2 @@
 # elibrary
-Spring MVC &amp; Hibernate web application for library management. 
+Spring MVC &amp; Spring Security &amp; Hibernate web application for library management. 
