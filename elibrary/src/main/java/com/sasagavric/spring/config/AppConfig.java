@@ -65,7 +65,7 @@ public class AppConfig implements WebMvcConfigurer {
 	}
 	
 	/**
-	 * define bean for DataSource (database xonnection configuration)
+	 * define bean for DataSource (database connection configuration)
 	 * @return 
 	 */
 	@Bean

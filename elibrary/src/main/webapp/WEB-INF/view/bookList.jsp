@@ -1,6 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 
 <!DOCTYPE>
 
@@ -15,7 +17,15 @@
 </head>
 <body>
 
-	<h1>eLibrary</h1>
+	<form:form action="${pageContext.request.contextPath}/logout" method="POST" id="my-form" >
+	 <a href="javascript:{}" onclick="document.getElementById('my-form').submit(); return false;" class="btn btn-info btn-lg btn-onright">
+         <span class="glyphicon glyphicon-log-out"></span> Log out
+     </a>
+	</form:form>
+
+	<div class="logout-heding">
+	<h1>eLibrary</h1>	
+	</div>
 	
 	
 	<div class="jumbotron">

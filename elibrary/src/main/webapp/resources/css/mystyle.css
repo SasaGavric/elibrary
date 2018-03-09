@@ -3,8 +3,9 @@ html{
 }
 
 body{
+	min-width:800px;
 	height:100px;
-	background-image: url("../image/cover.jpg");
+	background-image: url("../image/login-background.jpg");
 	background-repeat: repeat-y;
 	background-size: cover;
 	background-position: center;
@@ -17,7 +18,7 @@ body{
 	width:70%;
 	border-radius: 6%;
 	padding: 1%;
-	min-width: 700px;
+	min-width: 750px;
 	
 }
 
@@ -25,7 +26,7 @@ h1{
 	text-align: center;
 	color:white;
 	font-family: 'Pacifico', cursive;
-	font-size:105px;
+	font-size:100px;
 	text-shadow: -1px 0 black, 0 6px black, 1px 0 black, 0 -1px black;
 	margin-top: 5px;
 	
@@ -205,4 +206,19 @@ h3:before {
 	width: 25%;
 	padding-right:4%;
 	padding-left: 4%;
+}
+
+form a{
+	margin-top: 50px;
+    margin-right: 50px;
+}
+
+#my-form{
+	display: inline;
+		background: red;
+}
+
+.logout-heding{
+	width: 50%;
+	margin: auto;
 }
