@@ -40,14 +40,14 @@
 	<a href="<c:url value="/borrowReturn/chooseMemberId"><c:param name="page" value="${param.page}"/></c:url>" ><button type="button" class="btn btn-default navbar-btn">Borrow &amp; Return </button></a>
 	
 	
-	<form class="form-inline" action="memberSearch" method="POST">
+	<form:form class="form-inline" action="memberSearch" method="POST">
 		<input type="hidden" name="page" value="0">
   		<div class="form-group">
     		<label for="exampleInputName2">Search member:</label>   		
    			 <input type="text" name="memberName" class="form-control" id="exampleInputName2"  placeholder="Jane Doe" required="required">
  		</div>
   		<button type="submit" class="btn btn-default">Search</button>
-	</form>
+	</form:form>
 
 	<div class="table-responsive">
 	<table class="table table-striped">

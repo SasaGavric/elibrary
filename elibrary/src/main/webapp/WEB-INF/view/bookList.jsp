@@ -41,14 +41,14 @@
 	
 	<a href="<c:url value="bookForm" ><c:param name="page" value="${param.page}"></c:param></c:url>" ><button type="button" class="btn btn-default navbar-btn">Add Book</button></a>
 	
-	<form class="form-inline" action="bookSearch" method="POST">
+	<form:form class="form-inline" action="bookSearch" method="POST">
 		<input type="hidden" name="page" value="0">
   		<div class="form-group">
     		<label for="exampleInputName2">Search book:</label>   		
    			 <input type="text" name="name" class="form-control" id="exampleInputName2"  placeholder="The Lord of the Rings" required="required">
  		</div>
   		<button type="submit" class="btn btn-default">Search</button>
-	</form>
+	</form:form>
 
 	<div class="table-responsive">
 	<table class="table table-striped">
