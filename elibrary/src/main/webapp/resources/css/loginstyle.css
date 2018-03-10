@@ -1,3 +1,7 @@
+html{
+	height: 100%;
+}
+
 body{
 	margin:0;
 	color:white;
@@ -177,7 +181,7 @@ h1{
 }
 
 .header{
-	margin-bottom: 4%;
+	margin-bottom: 5%;
 }
 
 .logout{
