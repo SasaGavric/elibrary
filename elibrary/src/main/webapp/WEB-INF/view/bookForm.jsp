@@ -62,7 +62,7 @@
 			</div>
 			<div class="form-group">
 				<form:label path="description">Summary</form:label>
-				<form:textarea path="description" class="form-control txtarea" rows="8"/>
+				<form:textarea path="description" class="form-control txtarea" rows="6"/>
 				<form:errors path="description" cssClass="errors"/>		
 			</div>
 			<div class="form-group">
