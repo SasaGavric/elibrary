@@ -30,7 +30,7 @@
 	
 		<!-- Borrow one book -->
 		<h3><span>Borrow</span></h3>
-		
+		<c:if test="${member.borrowedBooks.size() < 2}">
 		<form:form action="borrowBook" modelAttribute="borrowedBook" method="POST">
 			<input type="hidden" name="page" value="${param.page}">
 			<input type="hidden" name="memberId" value="${member.id}">
@@ -42,7 +42,10 @@
 			<input type="submit" value="Borrow" class="btn btn-success" >		
 		
 		</form:form>
-		
+		</c:if>
+		<c:if test="${member.borrowedBooks.size() >= 2}">
+			<p>The member has already borrowed 2 books!</p>
+		</c:if>
 		<!-- Return one book -->
 		<h3><span>Return</span></h3>
 		<div class="table-responsive">
