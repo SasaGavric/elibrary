@@ -3,16 +3,17 @@ package com.sasagavric.spring.config;
 import java.beans.PropertyVetoException;
 import java.util.List;
 import java.util.Properties;
-
 import javax.sql.DataSource;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -39,8 +40,14 @@ import com.sasagavric.spring.formatter.MemberFormatter;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 @ComponentScan("com.sasagavric.spring")
+@PropertySources({
+	@PropertySource("classpath:persistence-mysql.properties"),
+	@PropertySource("classpath:mail.properties")
+})
 public class AppConfig implements WebMvcConfigurer {
 	
+	@Autowired
+	private Environment env;
 	
 	@Autowired
 	private MemberFormatter memberFormatter;
@@ -71,27 +78,29 @@ public class AppConfig implements WebMvcConfigurer {
 	@Bean
 	public DataSource myDataSource() {
 		
+		
 		// create connection pool
 		ComboPooledDataSource myDataSource = new ComboPooledDataSource();
 
 		// set the jdbc driver
 		try {
-			myDataSource.setDriverClass("com.mysql.jdbc.Driver");		
+			myDataSource.setDriverClass(env.getProperty("jdbc.driver"));		
 		}
 		catch (PropertyVetoException exc) {
 			throw new RuntimeException(exc);
 		}
 		
 		// set database connection props
-		myDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/elibrary?useSSL=false");
-		myDataSource.setUser("library_administrator");
-		myDataSource.setPassword("library");
+		myDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		myDataSource.setUser(env.getProperty("jdbc.user"));
+		myDataSource.setPassword(env.getProperty("jdbc.password"));
 		
 		// set connection pool props
-		myDataSource.setInitialPoolSize(5);
-		myDataSource.setMinPoolSize(5);
-		myDataSource.setMaxPoolSize(20);		
-		myDataSource.setMaxIdleTime(30000);
+		myDataSource.setInitialPoolSize(convertEnv("connection.pool.initialPoolSize"));
+		myDataSource.setMinPoolSize(convertEnv("connection.pool.minPoolSize"));
+		myDataSource.setMaxPoolSize(convertEnv("connection.pool.maxPoolSize"));		
+		myDataSource.setMaxIdleTime(convertEnv("connection.pool.maxIdleTime"));
+		
 
 		return myDataSource;
 	}
@@ -197,10 +206,10 @@ public class AppConfig implements WebMvcConfigurer {
 		javaMailProp.setProperty("mail.smtp.starttls.enable", "true");
 		javaMailProp.setProperty("mail.smtp.ssl.trust", "smtp.gmail.com");
 		
-		mailSender.setHost("smtp.gmail.com");
-		mailSender.setPort(587);
-		mailSender.setUsername("springmvcsendexceptionmail@gmail.com");
-		mailSender.setPassword("sasa12345");
+		mailSender.setHost(env.getProperty("mail.host"));
+		mailSender.setPort(convertEnv("mail.port"));
+		mailSender.setUsername(env.getProperty("mail.username"));
+		mailSender.setPassword(env.getProperty("mail.password"));
 		mailSender.setJavaMailProperties(javaMailProp);
 		
 		return mailSender;
@@ -215,7 +224,20 @@ public class AppConfig implements WebMvcConfigurer {
 		registry.addFormatter(bookFormatter);		
 	}
 
-	
+	/**
+	 * From String property name get int property value
+	 * @param propName
+	 * @return
+	 */
+	private int convertEnv(String propName) {
+		
+		String property = env.getProperty(propName);
+		
+		int convProp = Integer.parseInt(property);
+				
+		return convProp;		
+		
+	}
 	
 
 }

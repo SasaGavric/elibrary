@@ -29,14 +29,16 @@ public class EmailAspect {
 	 */
 	@AfterThrowing(pointcut = "execution( * com.sasagavric.spring.dao.*.*.*(..) )", throwing="exc")
 	public void adviceForEverything(JoinPoint theJoinPoint, HibernateException exc) {
-		
+		System.out.println("START SENDING");
 		//send mail 
 		SimpleMailMessage email = new SimpleMailMessage();
-		email.setTo("springmvcemailsender@gmail.com");
+		email.setTo("springmvcsendexceptionmail@gmail.com");
 		email.setSubject("Database problem " + new Date());
 		email.setText(exc.getLocalizedMessage());
 		
 		mailSender.send(email);
+		
+		System.out.println("MAIL SENDED");
 		
 	}
 
