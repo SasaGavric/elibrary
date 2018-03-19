@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.sasagavric.entity.Author;
 import com.sasagavric.entity.Book;
 
@@ -17,10 +16,13 @@ import com.sasagavric.entity.Book;
 @Repository
 public class BookDAOImpl implements BookDAO {
 	
-	@Autowired
 	private SessionFactory factory;
 
-	
+	@Autowired
+	public BookDAOImpl(SessionFactory factory) {
+		this.factory = factory;
+	}
+
 	/* 
 	 * this method will load all books from data base
 	 * @see com.sasagavric.spring.dao.book.BookDAO#getListOfBooks()

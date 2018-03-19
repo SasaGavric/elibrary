@@ -30,8 +30,13 @@ import com.sasagavric.spring.service.book.BookService;
 @RequestMapping("/book")
 public class BookController {
 
-	@Autowired
+	
 	private BookService bookService;
+	
+	@Autowired
+	public BookController(BookService bookService) {
+		this.bookService = bookService;
+	}
 
 	/**
 	 * Show 10 books, based on number of page

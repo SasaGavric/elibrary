@@ -2,11 +2,9 @@ package com.sasagavric.spring.formatter;
 
 import java.text.ParseException;
 import java.util.Locale;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Component;
-
 import com.sasagavric.entity.Book;
 import com.sasagavric.spring.service.book.BookService;
 
@@ -17,8 +15,12 @@ import com.sasagavric.spring.service.book.BookService;
 @Component
 public class BookFormatter implements Formatter<Book> {
 	
-	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	public BookFormatter(BookService bookService) {
+		this.bookService = bookService;
+	}
 
 	@Override
 	public String print(Book book, Locale arg1) {

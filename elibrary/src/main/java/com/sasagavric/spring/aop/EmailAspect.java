@@ -19,9 +19,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class EmailAspect {
 	
-	@Autowired
 	private JavaMailSender mailSender;
 	
+	@Autowired
+	public EmailAspect(JavaMailSender mailSender) {
+		this.mailSender = mailSender;
+	}
+
+
+
 	/**
 	 * If HibernateException occur in web app, send mail with description. 
 	 * @param theJoinPoint

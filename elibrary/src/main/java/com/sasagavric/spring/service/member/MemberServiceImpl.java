@@ -16,8 +16,12 @@ import com.sasagavric.spring.dao.member.MemberDAO;
 @Service
 public class MemberServiceImpl implements MemberService{
 	
-	@Autowired
 	private MemberDAO memberDao;
+
+	@Autowired	
+	public MemberServiceImpl(MemberDAO memberDao) {
+		this.memberDao = memberDao;
+	}
 
 	@Override
 	@Transactional

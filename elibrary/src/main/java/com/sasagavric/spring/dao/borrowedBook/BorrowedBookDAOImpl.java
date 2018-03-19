@@ -15,9 +15,13 @@ import com.sasagavric.entity.Member;
  */
 @Repository
 public class BorrowedBookDAOImpl implements BorrowedBookDAO {
-
-	@Autowired
+	
 	private SessionFactory factory;
+	
+	@Autowired
+	public BorrowedBookDAOImpl(SessionFactory factory) {
+		this.factory = factory;
+	}
 
 	/* borrow one book
 	 * @see

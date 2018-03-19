@@ -18,8 +18,12 @@ import com.sasagavric.entity.Member;
 @Repository
 public class MemberDAOImpl implements MemberDAO {
 	
-	@Autowired
 	private SessionFactory factory;
+	
+	@Autowired
+	public MemberDAOImpl(SessionFactory factory) {
+		this.factory = factory;
+	}
 
 	/* get all members from database (10 per page)
 	 * @see com.sasagavric.spring.dao.member.MemberDAO#listOfMembers()

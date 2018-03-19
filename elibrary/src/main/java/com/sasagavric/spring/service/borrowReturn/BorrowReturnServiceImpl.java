@@ -17,11 +17,14 @@ import com.sasagavric.spring.dao.member.MemberDAO;
 @Service
 public class BorrowReturnServiceImpl implements BorrowReturnService {
 
-	@Autowired
 	private MemberDAO memberDao;
-
-	@Autowired
 	private BorrowedBookDAO borrowedBookDAO;
+	
+	@Autowired
+	public BorrowReturnServiceImpl(MemberDAO memberDao, BorrowedBookDAO borrowedBookDAO) {
+		this.memberDao = memberDao;
+		this.borrowedBookDAO = borrowedBookDAO;
+	}
 
 	@Override
 	@Transactional

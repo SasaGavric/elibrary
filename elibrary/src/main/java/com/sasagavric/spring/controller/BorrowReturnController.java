@@ -26,8 +26,13 @@ import com.sasagavric.spring.service.borrowReturn.BorrowReturnService;
 @RequestMapping("/borrowReturn")
 public class BorrowReturnController {
 
-	@Autowired
+	
 	private BorrowReturnService borrowReturnService;
+	
+	@Autowired
+	public BorrowReturnController(BorrowReturnService borrowReturnService) {
+		this.borrowReturnService = borrowReturnService;
+	}
 
 	/**
 	 * return page for choosing member

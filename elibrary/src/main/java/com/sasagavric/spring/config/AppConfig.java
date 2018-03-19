@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -45,17 +46,24 @@ import com.sasagavric.spring.formatter.MemberFormatter;
 	@PropertySource("classpath:mail.properties")
 })
 public class AppConfig implements WebMvcConfigurer {
+		
 	
-	@Autowired
-	private Environment env;
+	private Environment env;	
 	
-	@Autowired
-	private MemberFormatter memberFormatter;
+	private MemberFormatter memberFormatter;	
 	
-	@Autowired
 	private BookFormatter bookFormatter;
 	
 	
+	
+	@Autowired
+	public AppConfig(@Lazy Environment env, @Lazy MemberFormatter memberFormatter, @Lazy BookFormatter bookFormatter) {
+		super();
+		this.env = env;
+		this.memberFormatter = memberFormatter;
+		this.bookFormatter = bookFormatter;
+	}
+
 	/**
 	 * define a bean for view resolver
 	 * @return 

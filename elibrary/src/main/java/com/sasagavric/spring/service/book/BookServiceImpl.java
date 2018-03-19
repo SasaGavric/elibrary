@@ -19,8 +19,12 @@ import com.sasagavric.spring.dao.book.BookDAO;
 @Service
 public class BookServiceImpl implements BookService {
 
-	@Autowired
 	private BookDAO bookDao;
+	
+	@Autowired
+	public BookServiceImpl(BookDAO bookDao) {
+		this.bookDao = bookDao;
+	}
 
 	@Override
 	@Transactional
