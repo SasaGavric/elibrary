@@ -2,7 +2,6 @@ package com.sasagavric.entity;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
@@ -21,34 +19,30 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
-
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Sasa Gavric
  *
  */
 @Data
+@NoArgsConstructor
 @Entity
-@Table(name="book")
 public class Book {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
 	private int id;
 	
-	@Column(name="title")
 	@NotNull
 	@Size(min = 2, max = 70)
 	@Value("${foo.firstName}")
 	private String title;
 	
-	@Column(name="description")
 	private String description;
 	
 	@Temporal(TemporalType.DATE)
@@ -64,7 +58,6 @@ public class Book {
 	@Max(50000)
 	private int numberOfPages;
 	
-	@Column(name="language")
 	@NotNull
 	@Size(min = 2, max = 35)
 	private String language;
@@ -86,9 +79,5 @@ public class Book {
 			inverseJoinColumns=@JoinColumn(name="author_id")
 			)
 	private List<Author> listOfAuthors;
-	
-	public Book() {
-		
-	}
 
 }

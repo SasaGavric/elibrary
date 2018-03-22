@@ -4,16 +4,16 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.springframework.beans.factory.annotation.Value;
-
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Sasa Gavric
  *
  */
 @Data
+@NoArgsConstructor
 @MappedSuperclass
 public class Person {
 	
@@ -28,8 +28,4 @@ public class Person {
 	@Size(min = 2, max = 35)
 	private String lastName;
 
-	//default constructor
-	public Person() {
-
-	}
 }

@@ -1,7 +1,6 @@
 package com.sasagavric.entity;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,21 +11,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Sasa
  *
  */
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "member_book")
 public class BorrowedBook {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
 	private int id;
 
 	@ManyToOne
@@ -41,7 +40,4 @@ public class BorrowedBook {
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBorrowing;
 
-	public BorrowedBook() {
-
-	}
 }

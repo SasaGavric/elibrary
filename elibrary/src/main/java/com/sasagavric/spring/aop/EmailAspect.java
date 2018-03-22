@@ -1,7 +1,6 @@
 package com.sasagavric.spring.aop;
 
 import java.util.Date;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;

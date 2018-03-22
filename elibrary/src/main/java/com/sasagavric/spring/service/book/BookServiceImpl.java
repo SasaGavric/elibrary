@@ -1,13 +1,9 @@
 package com.sasagavric.spring.service.book;
 
 import java.util.List;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.sasagavric.entity.Author;
 import com.sasagavric.entity.Book;
 import com.sasagavric.spring.dao.book.BookDAO;

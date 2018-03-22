@@ -1,7 +1,6 @@
 package com.sasagavric.spring.dao.member;
 
 import java.util.List;
-
 import com.sasagavric.entity.Book;
 import com.sasagavric.entity.Member;
 

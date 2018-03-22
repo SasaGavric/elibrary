@@ -26,7 +26,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.sasagavric.spring.formatter.BookFormatter;
 import com.sasagavric.spring.formatter.MemberFormatter;
