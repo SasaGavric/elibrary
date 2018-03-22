@@ -26,10 +26,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import lombok.Data;
+
 /**
  * @author Sasa Gavric
  *
  */
+@Data
 @Entity
 @Table(name="book")
 public class Book {
@@ -88,81 +91,4 @@ public class Book {
 		
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Date getDateOfIssue() {
-		return dateOfIssue;
-	}
-
-	public void setDateOfIssue(Date dateOfIssue) {
-		this.dateOfIssue = dateOfIssue;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public int getNumberOfPages() {
-		return numberOfPages;
-	}
-
-	public void setNumberOfPages(int numberOfPages) {
-		this.numberOfPages = numberOfPages;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-	
-
-	public String getCoverImageUrl() {
-		return coverImageUrl;
-	}
-
-	public void setCoverImageUrl(String coverImageUrl) {
-		this.coverImageUrl = coverImageUrl;
-	}
-
-	public List<Author> getListOfAuthors() {
-		return listOfAuthors;
-	}
-
-	public void setListOfAuthors(List<Author> listOfAuthors) {
-		this.listOfAuthors = listOfAuthors;
-	}
-
-	public int getBooksInStock() {
-		return booksInStock;
-	}
-
-	public void setBooksInStock(int booksInStock) {
-		this.booksInStock = booksInStock;
-	}
-	
-	
-	
-	
-	
 }

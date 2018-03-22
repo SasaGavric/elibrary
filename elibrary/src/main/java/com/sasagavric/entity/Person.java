@@ -7,10 +7,13 @@ import javax.validation.constraints.Size;
 
 import org.springframework.beans.factory.annotation.Value;
 
+import lombok.Data;
+
 /**
  * @author Sasa Gavric
  *
  */
+@Data
 @MappedSuperclass
 public class Person {
 	
@@ -29,24 +32,4 @@ public class Person {
 	public Person() {
 
 	}
-
-	//accessors and mutators
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	
-
 }

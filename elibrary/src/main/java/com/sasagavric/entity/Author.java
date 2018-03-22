@@ -14,10 +14,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * @author Sasa Gavric
  *
  */
+@Data
+@EqualsAndHashCode(callSuper=true)
 @Entity
 @Table(name = "author")
 public class Author extends Person {
@@ -43,37 +48,9 @@ public class Author extends Person {
 
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<Book> getListOfIssuedBooks() {
-		return listOfIssuedBooks;
-	}
-
-	public void setListOfIssuedBooks(List<Book> listOfIssuedBooks) {
-		this.listOfIssuedBooks = listOfIssuedBooks;
-	}
-
 	@Override
 	public String toString() {
 		return this.getFirstName() + "  " + this.getLastName();
 	}
-
-	
-	
 
 }

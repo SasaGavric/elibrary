@@ -1,6 +1,7 @@
 package com.sasagavric.entity;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,10 +13,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
+
 /**
  * @author Sasa
  *
  */
+@Data
 @Entity
 @Table(name = "member_book")
 public class BorrowedBook {
@@ -40,44 +44,4 @@ public class BorrowedBook {
 	public BorrowedBook() {
 
 	}
-
-
-	public Member getMember() {
-		return member;
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-	}
-
-	public Book getBorrowedBook() {
-		return borrowedBook;
-	}
-
-	public void setBorrowedBook(Book borrowedBook) {
-		this.borrowedBook = borrowedBook;
-	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public Date getDateOfBorrowing() {
-		return dateOfBorrowing;
-	}
-
-
-	public void setDateOfBorrowing(Date dateOfBorrowing) {
-		this.dateOfBorrowing = dateOfBorrowing;
-	}
-
-	
-
 }
