@@ -1,0 +1,223 @@
+html{
+	height:100%;
+}
+
+body{
+	min-width:800px;
+	height:100px;
+	background-image: url("../image/login-background.jpg");
+	background-repeat: repeat-y;
+	background-size: cover;
+	background-position: center;
+}
+
+.jumbotron{
+	margin:auto;
+	margin-top:4%;
+	margin-bottom:3%;
+	width:70%;
+	border-radius: 6%;
+	padding: 1%;
+	min-width: 750px;
+	
+}
+
+h1{
+	text-align: center;
+	color:white;
+	font-family: 'Pacifico', cursive;
+	font-size:100px;
+	text-shadow: -1px 0 black, 0 6px black, 1px 0 black, 0 -1px black;
+	margin-top: 5px;
+	
+}
+
+hr{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+
+.user{
+	width: 75px;
+	height: 75px;
+	margin-bottom: 10px;
+	margin-right:20px;
+	float: right;
+}
+
+#customerForm{
+	width: 25%;
+	padding-right:7%;
+	padding-left: 7%;
+}
+
+.btn-onright{
+	float: right;
+}
+
+.errors{
+	color: red;
+}
+
+.name-title{
+	display:block;
+	margin: auto;
+	text-align: center;
+}
+
+.cover{
+	width: 180px;
+	height: 180px;
+	display:block;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+}
+
+.img-rounded{
+	margin-bottom: 1%;
+}
+
+#book-image{
+	height: 240px;
+}
+
+
+i{
+	display:inline-block;
+	width:7%;
+	margin-right: 50px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:3%;
+    background-color: #eee;
+    color: black;
+    text-align: center;
+}
+
+.footer{
+	padding-top: 5px;
+}
+
+.form-inline{
+	float:right;
+}
+
+.nav-pills>li+li{
+	background-color: #d6d6d6;
+}
+
+.nav>li>a{
+	background-color: #d6d6d6;
+}
+
+.nav>li>a:hover{
+	background-color:  #c3daee;
+}
+
+.max-field{
+	max-width: 200px;
+}
+
+.ordered-list{
+	display: inline-table;
+	list-style-type: none;
+}
+
+.overview{
+	display:block;
+	margin: auto;
+	margin-bottom:3%;
+	text-align: center;
+}
+
+.overview-panel{
+	max-width: 1000px;
+}
+
+.txtarea{
+	resize: none;
+}
+
+.form-header{
+	text-align: center;
+	font-weight:bold;
+}
+
+.authors{
+	width: 60%;
+	display:inline-block;	
+}
+.form-authors{
+	margin-bottom: 0px;
+}
+
+.author-btn{
+	margin-bottom: 12%;
+}
+
+.pager{
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+h3 {
+  position: relative;
+  text-align: center;
+}
+
+h3 span {
+  background: #eee;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+
+h3:before {
+  background: black;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+    top: 50%;
+  width: 100%;
+}
+
+h3:before {
+  left: 0;
+}
+
+.select-book{
+	width: 80%;
+	margin-right:2%;
+	margin-bottom:5%;
+	display: inline;	
+}
+
+#borrowReturn{
+	width: 25%;
+	padding-right:4%;
+	padding-left: 4%;
+}
+
+form a{
+	margin-top: 50px;
+    margin-right: 50px;
+}
+
+#my-form{
+	display: inline;
+		background: red;
+}
+
+.logout-heding{
+	width: 50%;
+	margin: auto;
+}
