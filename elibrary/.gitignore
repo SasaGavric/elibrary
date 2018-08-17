@@ -23,4 +23,5 @@ hs_err_pid*
 
 #Target and eclipse folders
 .settings
+.idea
 target
